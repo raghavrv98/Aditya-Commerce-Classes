@@ -72,7 +72,7 @@
                   <a class="nav-link pagescroll" href="#contact">contact</a>
                </li>
                <li class="nav-item">
-                    <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
+                    <a class="nav-link page-scroll" data-toggle="modal" href="#registration">Login</a>
                 </li>
             </ul>
          </div>
@@ -97,7 +97,7 @@
                 <a class="nav-link pagescroll" href="#contact">Contact</a>
              </li>
              <li class="nav-item">
-                    <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
+                    <a class="nav-link page-scroll" data-toggle="modal" href="#registration">Login</a>
                 </li>
             </ul>
          </nav>
@@ -114,14 +114,49 @@
    <!-- End side menu -->
 </header>
 <!-- header -->
+    <!-- Enquiry modal-->
+    <div class="container">    
+                            
+            <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                                     <div class="modal-header" style="background-color:#0683c9">
+                                          <h4 style="color:white">Registration Form</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                       </div>
+                                  <div class="modal-body">
+                                     <br>
+                                     <form method="post" action = "/app/signin">
+                                       <input type="text" name="sname" class="form-control" placeholder="Student's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                                       <br><input type="text" name="fname" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                                       <br><input type="text" name="phone" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
+                                       <br><input type="text" name="scname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
+                                       <br><input type="date" name="phone" class="form-control" placeholder="joining Date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                                       <br><input type="email" name="email" class="form-control" placeholder="Email-Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                                       <div class="form-check-inline" style="margin-left:10%;">
+                                          <input type="checkbox" class="form-check-input"><b>Accounts</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>Business</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>Economics</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>English</b>&nbsp;
+                                          
+                                          </div>
+                                      <br><br><textarea class="form-control" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;" required data-error="Please enter your Message" name="message"></textarea>
+                                      <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Send">
+
+                              </form>
+                        </div>
+                    </div>
+                 </div>
+               </div></div>
+
 <section id="home" class="padding_top">
     <div class="container">
        <div class="row">
-         <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" data-wow-delay="350ms">
+         <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" style="margin-left: 13%" data-wow-delay="350ms">
              <div class="row">
                     
                 <div class="col-md-4 col-6 our-address top40">
-                            <h1 class="darkcolor"><a href="#"><i class="fa fa-pencil" style="color:#00bcd4"></i></h1>
+                            <h1 class="darkcolor"><a data-toggle="modal" href="#registration"><i class="fa fa-pencil" style="color:#00bcd4"></i></h1>
                            <p class="bottom15"><h4>Registration</h4></p></a>
                         </div>
 
@@ -159,6 +194,7 @@
        </div>
     </div>
  </section>
+ 
 <!-- Contact US -->  
 <section id="contact" class="padding_top">
    <div class="container">
