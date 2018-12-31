@@ -53,7 +53,7 @@
     </div>
   </div>
   <!--PreLoader Ends-->
-<% if(currentUser) { %>
+  <% if(currentUser) { %>
   <!-- header -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg fixed-top gradient_bg">
@@ -130,21 +130,7 @@
                 <li><a href="#english" data-toggle="tab" class="btn btn-common">English</a></li>
               </ul>
             </div>
-            <h2 style="text-align:center">Attendance</h2><br>
-            <table>
-            <% for(var i=0;i<attendanceList.length;i++) { %>
-              <tr>
-                <td><%= attendanceList[i].lecture_date.toLocaleString().slice(0,15) %></td>
-                <td><%= attendanceList[i].course %></td>
-                <td><%= attendanceList[i].present %></td>
-              </tr>
-            <% } %>
-          </table>
-
-
-
-
-
+            <h2 style="text-align:center">Fees Details</h2><br>
             <div class="panel-body">
               <div class="tab-content">
                 <div class="tab-pane fade" id="accounts">
@@ -152,32 +138,91 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <br>
+                        <h4>Joining Date: <%= currentUser.joining_date.toLocaleString().slice(0,10) %> </h4><br>
+
+                        <table>
+                          <% for(var month in feesList) { %>
+                            <tr>
+                              <td> <%= month %> </td> <td> <%= feesList[month] %> </td>
+                            </tr>
+                          <% } %>
+                        </table>
+
+
+
+
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Serial no.</th>
-                              <th scope="col">Date</th>
+                              <th scope="col">Months</th>
                               <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
+                              <th scope="row">January</th>
+
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
+                              <th scope="row">February</th>
+
                               <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
+                              <th scope="row">March</th>
+
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
+                            <tr>
+                              <th scope="row">April</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">May</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">June</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">July</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">August</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">september</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">October</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">November</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">December</th>
+
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+
                           </tbody>
                         </table>
+
+
                       </div>
                     </div>
                   </div><br>
@@ -187,32 +232,68 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <br>
+                        <h4>Joining Date:</h4><br>
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Serial no.</th>
-                              <th scope="col">Date</th>
+                              <th scope="col">Months</th>
                               <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
+                              <th scope="row">January</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
+                              <th scope="row">February</th>
                               <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
+                              <th scope="row">March</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
+                            <tr>
+                              <th scope="row">April</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">May</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">June</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">July</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">August</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">september</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">October</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">November</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">December</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+
                           </tbody>
                         </table>
+
+
                       </div>
                     </div>
                   </div><br>
@@ -222,32 +303,68 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <br>
+                        <h4>Joining Date:</h4><br>
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Serial no.</th>
-                              <th scope="col">Date</th>
+                              <th scope="col">Months</th>
                               <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
+                              <th scope="row">January</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
+                              <th scope="row">February</th>
                               <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
+                              <th scope="row">March</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
+                            <tr>
+                              <th scope="row">April</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">May</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">June</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">July</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">August</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">september</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">October</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">November</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">December</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+
                           </tbody>
                         </table>
+
+
                       </div>
                     </div>
                   </div><br>
@@ -257,32 +374,67 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <br>
+                        <h4>Joining Date:</h4><br>
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Serial no.</th>
-                              <th scope="col">Date</th>
+                              <th scope="col">Months</th>
                               <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
+                              <th scope="row">January</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
+                              <th scope="row">February</th>
                               <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
                             </tr>
                             <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
+                              <th scope="row">March</th>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
                             </tr>
+                            <tr>
+                              <th scope="row">April</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">May</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">June</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">July</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">August</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">september</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">October</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">November</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">December</th>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+
                           </tbody>
                         </table>
+
 
                       </div>
                     </div>
