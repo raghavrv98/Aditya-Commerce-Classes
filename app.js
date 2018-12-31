@@ -28,25 +28,24 @@ app.use(views('views', {
 }));
 
 app.use(json());
-app.use(logger());
+// app.use(logger());
 
 app.use(bodyParser);
 
 app.use(function* (next) {
   var sessionId = this.cookies.get("SESSION_ID");
-  console.log('COOKIE COOKIE-----------------',sessionId)
   this.currentUser = yield sessionUtils.getCurrentUser(sessionId);
  yield next;
 });
 
 
 
-app.use(function* (next) {
-  var start = new Date;
-  yield next;
-  var ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
-});
+// app.use(function* (next) {
+//   var start = new Date;
+//   yield next;
+//   var ms = new Date - start;
+//   console.log('%s %s - %s', this.method, this.url, ms);
+// });
 
 app.use(require('koa-static')(__dirname + '/public'));
 
