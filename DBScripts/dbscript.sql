@@ -1,10 +1,11 @@
-CREATE TABLE admin(
+CREATE TABLE user(
     id int unsigned NOT NULL AUTO_INCREMENT,
     creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     name varchar(31) NOT NULL,
     mobile char(10) NOT NULL,
     password varchar(255) NOT NULL,
     CONSTRAINT pk_admin PRIMARY KEY(id)
+
 );
 
 CREATE TABLE school(
@@ -76,8 +77,6 @@ CREATE TABLE lecture(
     CONSTRAINT fk_course_id_lecture FOREIGN KEY(course_id) REFERENCES course(id),
     CONSTRAINT pk_lecture PRIMARY KEY(id)
 );
-
-NOTE: use DATE('yyyy-mm-dd') while inserting date in lecture table
 
 CREATE table attendance(
     id int unsigned NOT NULL AUTO_INCREMENT,

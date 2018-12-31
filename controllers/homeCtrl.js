@@ -19,7 +19,7 @@ module.exports = {
             sessionUtils.saveUserInSession(user, this.cookies)
             this.redirect('/student')
         } else {
-            query = util.format("select * from admin where mobile=%s", mobile)
+            query = util.format("select * from super_user where mobile=%s", mobile)
             result = yield databaseUtils.executeQuery(query)
             user = result[0]
             if (user && password === user.password) {
