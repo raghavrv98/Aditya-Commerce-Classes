@@ -1,4 +1,4 @@
-CREATE TABLE user(
+CREATE TABLE super_user(
     id int unsigned NOT NULL AUTO_INCREMENT,
     creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     name varchar(31) NOT NULL,
