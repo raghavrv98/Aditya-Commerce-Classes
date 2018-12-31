@@ -9,5 +9,6 @@ router.get('/logout',homeCtrl.logout)
 router.get('/student',studentCtrl.showDashboard)
 router.get('/student/attendance',studentCtrl.showAttendance)
 router.get('/student/feesquery',studentCtrl.showFees)
+router.get('/student/test_result',studentCtrl.showTestResult)
 
 module.exports=router;
