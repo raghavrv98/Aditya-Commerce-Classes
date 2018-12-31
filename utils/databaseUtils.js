@@ -1,6 +1,6 @@
 var config = require('./../config');
 var mysql = require('mysql');
-var logger = require('./../logger');
+var logger = require('koa-logger');
 var thunkify = require('thunkify');
 
 var pool  = mysql.createPool({

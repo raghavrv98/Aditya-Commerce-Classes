@@ -1,5 +1,12 @@
 module.exports = {
     showDashboard: function* (next) {
-        yield this.render('teacher_dashboard', {});
+        if (this.currentUser) {
+            yield this.render('teacher_dashboard', {
+                'currentUser': this.currentUser
+            });
+        }
+        else{
+            this.redirect('/')
+        }
     }
 }

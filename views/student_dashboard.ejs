@@ -51,7 +51,7 @@
    </div>
 </div>
 <!--PreLoader Ends-->
-
+<% if(currentUser && !currentUser.isAdmin) { %>
 <!-- header -->
 <header class="site-header">
    <nav class="navbar navbar-expand-lg fixed-top gradient_bg" >
@@ -153,6 +153,9 @@
        </div>
     </div>
  </section>
+ <% } else { %>
+   <h1 class="text-center"> Unauthorised Access </h1>
+<% } %>
 <!-- Contact US -->  
 <section id="contact" class="padding_top">
    <div class="container">
