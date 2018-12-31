@@ -24,6 +24,12 @@
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#enquiry').modal('show');
+    });
+</script>
+
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="90">
 
@@ -52,6 +58,99 @@
 </div>
 <!--PreLoader Ends-->
 
+
+<!--Some Feature -->  
+<section id="home" class="padding single-feature">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-6 col-sm-7 text-md-left text-center wow fadeInLeft" data-wow-delay="500ms">
+             <div class="heading-title heading_space">
+                <!-- <span>Service We Offer</span>   -->
+                <br><br>
+                <h1 class="darkcolor bottom30">Aditya Jain</h1>
+             </div>
+             <p class="bottom35">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus. </p>
+             <a href="#aboutme" class="button btnsecondary pagescroll" style="background-color:#00bcd4" class="nav-link pagescroll">About Me</a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 wow fadeInRight" data-wow-delay="500ms">
+               <img src="images/responsive.png" alt="">
+            </div>
+          <!-- <div class="col-md-6 col-sm-5 wow fadeInRight" data-wow-delay="500ms">
+             <div class="image top50"><img alt="SEO" src="images/responsive.png"></div>
+          </div> -->
+       </div>
+    </div>
+ </section>
+ <!--Some Feature ends--> 
+      <!-- Modal -->
+      <div class="container">    
+                            
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                               <div class="modal-header" style="background-color:#0683c9">
+                                    <h4 style="color:white">Login</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                 </div>
+                             
+                            <div class="modal-body,input-group input-group-lg">
+                               <br><br>
+                     
+                               <form method="post" action = "/app/signin">
+                                 <input type="text" name="userid" class="form-control" placeholder="User Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required data-error="Please enter your User Id">
+                                 <br><br>
+                                 <input type="password" name="password"  class="form-control" placeholder="Password" style="width:80%; margin-left:10%;border-color: #00bcd4; color:black" required data-error="Please enter your Password">
+                                 <br><br>
+                           
+                                 <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Login">  
+                                 
+
+                                 <br><br>
+                         <br><br>
+                                                 
+                        </form>
+                                          </div>
+              </div>
+           </div>
+         </div>
+    
+    </div>
+
+    <!-- Enquiry modal-->
+    <div class="container">    
+                            
+            <div class="modal fade" id="enquiry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                                     <div class="modal-header" style="background-color:#0683c9">
+                                          <h4 style="color:white">Get in Touch</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                       </div>
+                                  <div class="modal-body">
+                                     <br>
+                                     <form method="post" action = "/app/signin">
+                                       <input type="text" name="name" class="form-control" placeholder="Full Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required data-error="Please enter your Name">
+                                       <br><input type="email" name="email" class="form-control" placeholder="Email-Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required data-error="Please enter Valid Email-Id">
+                                       <br><input type="phone" name="phone" class="form-control" placeholder="Phone" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required data-error="Please enter your Phone"><br>  
+                                       <div class="form-check-inline" style="margin-left:10%;">
+                                          <input type="checkbox" class="form-check-input"><b>Accounts</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>Business</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>Economics</b>&nbsp;
+                                          <input type="checkbox" class="form-check-input" value=""><b>English</b>&nbsp;
+                                          
+                                          </div>
+                                      <br><br><textarea class="form-control" placeholder="Message" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;" required data-error="Please enter your Message" name="message"></textarea>
+                                      <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Send">
+
+                              </form>
+                        </div>
+                    </div>
+                 </div>
+               </div></div>
+
+
+
+
 <!-- header -->
 <header class="site-header">
    <nav class="navbar navbar-expand-lg fixed-top gradient_bg" >
@@ -68,6 +167,18 @@
                <li class="nav-item active">
                   <a class="nav-link pagescroll" href="#home">Home</a> 
                </li>
+               <li class="nav-item">
+                  <a class="nav-link pagescroll" href="#courses">Courses</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link pagescroll" href="#gallery">Photo Gallery</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link pagescroll" href="#toppers">Toppers</a>
+               </li>
+               <li class="nav-item">
+                <a class="nav-link pagescroll" href="#videos">Videos</a>
+             </li>
                <li class="nav-item">
                   <a class="nav-link pagescroll" href="#contact">contact</a>
                </li>
@@ -93,6 +204,18 @@
                <li class="nav-item active">
                   <a class="nav-link pagescroll" href="#home">Home</a>
                </li>
+               <li class="nav-item">
+                <a class="nav-link pagescroll" href="#courses">Courses</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link pagescroll" href="#gallery">Photo Gallery</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link pagescroll" href="#toppers">Toppers</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link pagescroll" href="#videos">Videos</a>
+             </li>
              <li class="nav-item">
                 <a class="nav-link pagescroll" href="#contact">Contact</a>
              </li>
@@ -114,45 +237,440 @@
    <!-- End side menu -->
 </header>
 <!-- header -->
-<section id="home" class="padding_top">
+<!-- Pricing Tables -->
+<section id="courses" class="padding pricing-bg">
     <div class="container">
        <div class="row">
-         <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" style="margin-left: 13%" data-wow-delay="350ms">
+          <div class="col-md-8 offset-md-2 col-sm-12 text-center">
+             <div class="heading-title whitecolor wow fadeInUp" data-wow-delay="300ms">
+                <!-- <span>Choose The Best One</span> -->
+                <h2 class="bottom30">Our Courses</h2>
+                <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. </p>
+             </div>
+          </div>
+       </div>
+       <div class="row centered-table">
+          <div class="col-md-3 col-sm-12">
+             <div class="price-table top60 wow fadeIn" data-wow-delay="100ms">
+                <h3 class="bottom20 darkcolor">Accounts</h3>
+                <ul class="top20">
+                   <li><span>Designing a small brand</span></li>
+                   <li><span>Redesign the company logo</span></li>
+                   <li><span>New visual design of the website</span></li>
+                   <li><span>Deploying a website</span></li>
+                   <li><span>Support and care</span></li>
+                </ul>
+                <div class="clearfix"></div>
+                <!-- <div class="ammount top50">
+                   <h2 class="defaultcolor"><i class="fa fa-dollar"></i> 9.99</h2>
+                </div> -->
+                <a class="button btnprimary top50" style="background-color:#00bcd4" data-toggle="collapse" href="#c1" aria-controls="collapseExample">
+                      Details
+                    </a>
+            </div>
+            <div class="collapse" id="c1">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div> 
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <div class="price-table top60 wow fadeInUp" data-wow-delay="200ms">
+               <h3 class="bottom20 darkcolor">Business</h3>
+               <ul class="top20">
+                  <li><span>Designing a small brand</span></li>
+                  <li><span>Redesign the company logo</span></li>
+                  <li><span>New visual design of the website</span></li>
+                  <li><span>Deploying a website</span></li>
+                  <li><span>Studio and product photography</span></li>
+               </ul>
+               <div class="clearfix"></div>
+               <!-- <div class="ammount top50">
+                  <h2 class="defaultcolor"><i class="fa fa-dollar"></i> 99.99 </h2>
+               </div> -->
+               <a class="button btnprimary top50" style="background-color:#00bcd4" data-toggle="collapse" href="#c2" aria-controls="collapseExample">
+                Details
+              </a>
+      </div>
+      <div class="collapse" id="c2">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+         </div>
+          <div class="col-md-3 col-sm-12">
+             <div class="price-table top60 wow fadeInUp" data-wow-delay="300ms">
+                <h3 class="bottom20 darkcolor">Economics</h3>
+                <ul class="top20">
+                   <li><span>Designing a small brand</span></li>
+                   <li><span>Redesign the company logo</span></li>
+                   <li><span>New visual design of the website</span></li>
+                   <li><span>Deploying a website</span></li>
+                   <li><span>Studio and product photography</span></li>
+                </ul>
+                <div class="clearfix"></div>
+                <!-- <div class="ammount top50">
+                   <h2 class="defaultcolor"><i class="fa fa-dollar"></i> 99.99 </h2>
+                </div> -->
+                <a class="button btnprimary top50" style="background-color:#00bcd4" data-toggle="collapse" href="#c3" aria-controls="collapseExample">
+                    Details
+                  </a>
+          </div>
+          <div class="collapse" id="c3">
+              <div class="card card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <div class="price-table top60 wow fadeInUp" data-wow-delay="400ms">
+               <h3 class="bottom20 darkcolor">English</h3>
+               <ul class="top20">
+                  <li><span>Designing a small brand</span></li>
+                  <li><span>Redesign the company logo</span></li>
+                  <li><span>New visual design of the website</span></li>
+                  <li><span>Deploying a website</span></li>
+                  <li><span>Studio and product photography</span></li>
+               </ul>
+               <div class="clearfix"></div>
+               <!-- <div class="ammount top50">
+                  <h2 class="defaultcolor"><i class="fa fa-dollar"></i> 99.99 </h2>
+               </div> -->
+               <a class="button btnprimary top50" style="background-color:#00bcd4" data-toggle="collapse" href="#c4" aria-controls="collapseExample">
+                Details
+              </a>
+      </div>
+      <div class="collapse" id="c4">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+         </div>
+       </div>
+    </div>
+ </section>
+ <!--Pricing Tables ends-->
+ 
+<!-- Counters -->  
+<section id="funfacts" class="padding_top fact-iconic gradient_bg">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-5 col-sm-12 margin_bottom whitecolor text-md-left text-center wow fadeInLeft" data-wow-delay="300ms">
+             <h3 class="bottom25">Our many years of experience in numbers</h3>
+             <p class="title">We show you our professional achievements in numbers, which show the acquired skills and trust of many students.</p>
+          </div>
+          <div class="col-md-7 col-sm-12 text-center">
              <div class="row">
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-file-text-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Attendance</h4></p></a>
+                <div class="col-md-4 col-sm-4 icon-counters whitecolor margin_bottom  wow fadeInRight" data-wow-delay="400ms">
+                   <div class="img-icon bottom15">
+                      <i class="fa fa-calendar"></i>
+                   </div>
+                   <div class="counters">
+                      <span class="count_nums" data-to="2010" data-speed="2500"> </span></i>
+                   </div>
+                   <p class="title">Established</p>
                 </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-file-text-fa fa-pencil-square-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Exams Schedule</h4></p></a>
+                <div class="col-md-4 col-sm-4 icon-counters whitecolor margin_bottom wow fadeInRight" data-wow-delay="350ms">
+                   <div class="img-icon bottom15">
+                      <i class="fa fa-smile-o"> </i>
+                   </div>
+                   <div class="counters">
+                      <span class="count_nums" data-to="2500" data-speed="2500"> </span> <i class="fa fa-plus"></i>
+                   </div>
+                   <p class="title">Happy Students</p>
                 </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Fees Details</h4></p></a>
-                </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-bar-chart" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Result</h4></p></a>
-                </div>          
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-files-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Syllabus</h4></p></a>
-                </div>                                
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="#"><i class="fa fa-calendar-check-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Time Table</h4></p></a>
+                <div class="col-md-4 col-sm-4 icon-counters whitecolor margin_bottom wow fadeInRight" data-wow-delay="300ms">
+                   <div class="img-icon bottom15">
+                      <i class="fa fa-trophy"></i>
+                   </div>
+                   <div class="counters">
+                      <span class="count_nums" data-to="250" data-speed="2500"> </span> <i class="fa fa-plus"></i>
+                   </div>
+                   <p class="title">Rank Holders</p>
                 </div>
              </div>
           </div>
        </div>
     </div>
  </section>
+ <!--Counters ends--> 
+ 
+ <!--Gallery-->
+<section id="gallery" class="bglight padding">
+    <div class="container">
+     <div class="row">
+          <div class="col-md-8 offset-md-2 col-sm-12 text-center">
+             <div class="heading-title wow fadeInUp" data-wow-delay="300ms">
+                <!-- <span>Portfolio Designs</span> -->
+                <h1 class="darkcolor bottom10">Photo Gallery</h1>
+                <p class="heading_space">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus. </p>
+             </div>
+          </div>
+       </div>
+       <div id="flat-gallery" class="cbp">
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-5.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-5.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div>
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-6.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-6.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div> 
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-3.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-3.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div>
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-4.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-4.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div>
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-9.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-9.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div>
+          <div class="cbp-item itemshadow">
+             <img src="images/portfolio-8.jpg" alt="">
+             <div class="overlay center-block whitecolor">
+                <a class="plus" data-fancybox="gallery" href="images/portfolio-8.jpg"></a>
+                <h4 class="top30">Wood Work</h4>
+                <p>Small Portfolio Detail Here</p>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!--Gallery ends -->         
+ 
+<!-- Testimonials -->  
+<section id="toppers" class="padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-sm-12 text-center">
+             <div class="heading-title bottom30 wow fadeInUp" data-wow-delay="300ms">
+                <!-- <span>Testimonials</span> -->
+                <h1 class="darkcolor">Toppers</h1>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-md-12 col-sm-12">
+             <div id="testimonial-slider" class="owl-carousel">
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40" >Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-1.jpg"></div>
+                      <h4 class="darkcolor">David Raleway</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-2.jpg"></div>
+                      <h4 class="darkcolor">Sam Billings</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-3.jpg"></div>
+                      <h4 class="darkcolor">Jatinder Shahg</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-1.jpg"></div>
+                      <h4 class="darkcolor">David Zucker</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-2.jpg"></div>
+                      <h4 class="darkcolor">Akten Jansen</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-3.jpg"></div>
+                      <h4 class="darkcolor">Doe Raleway</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-1.jpg"></div>
+                      <h4 class="darkcolor">Shamoun Raleway</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-3.jpg"></div>
+                      <h4 class="darkcolor">Albugdadi Raleway</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="testimonial-wrapp">
+                      <span class="quoted" style="background-color:#0683c9"><i class="fa fa-quote-right"></i></span>
+                      <div class="testimonial-text">
+                         <p class="bottom40">Donec semper euismod nisi quis feugiat. Nullam finibus metus eget orci volutpat porta. Morbi quis arcu vulputate, dignissim mi ac, varius magna.</p>
+                      </div>
+                      <div class="testimonial-photo"><img alt="" src="images/testimonial-3.jpg"></div>
+                      <h4 class="darkcolor">Albugdadi Raleway</h4>
+                      <small class="defaultcolor">Businessman</small>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!--Testimonials Ends-->
+ 
+<!-- Mobile Apps -->  
+<section id="aboutme" class="padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-sm-12 text-center">
+             <div class="heading-title wow fadeInUp" data-wow-delay="300ms">
+                <!-- <span>Yes We Provide Mobile Apps</span> -->
+                <h1 class="darkcolor heading_space">Aditya Jain</h1>
+             </div>
+          </div>
+       </div>
+       <div class="row" id="app-feature">
+          <div class="col-lg-4 col-md-4 col-sm-12">
+             <div class="content-left clearfix">
+                <div class="feature-item left top30 bottom30 wow fadeInUp" data-wow-delay="300ms">
+                   <span class="icon"><i class="fa fa-mobile-phone"></i></span>
+                   <div class="text">
+                      <h4>Responsive Design</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+                <div class="feature-item left top30 bottom30 wow fadeInUp" data-wow-delay="350ms">
+                   <span class="icon"><i class="fa fa-cog"></i></span>
+                   <div class="text">
+                      <h4>Amazing Theme Options</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+                <div class="feature-item left top30 bottom30 wow fadeInUp" data-wow-delay="400ms">
+                   <span class="icon"><i class="fa fa-edit"></i></span>
+                   <div class="text">
+                      <h4>Easy to Customize</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+             <div class="image feature-item text-center wow fadeIn" data-wow-delay="500ms">
+                <img src="images/responsive.png" alt="">
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+             <div class="content-right clearfix">
+                <div class="feature-item right top30 bottom30 wow fadeInUp" data-wow-delay="300ms">
+                   <span class="icon"><i class="fa fa-code"></i></span>
+                   <div class="text">
+                      <h4>Powerful BackEnd</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+                <div class="feature-item right top30 bottom30 wow fadeInUp" data-wow-delay="350ms">
+                   <span class="icon"><i class="fa fa-folder-o"></i></span>
+                   <div class="text">
+                      <h4>Well Documented</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+                <div class="feature-item right top30 bottom30 wow fadeInUp" data-wow-delay="400ms">
+                   <span class="icon"><i class="fa fa-support"></i></span>
+                   <div class="text">
+                      <h4>24/7 Support</h4>
+                      <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>                                                                                 
+ <!--Mobile Apps ends-->  
+    
+  
+<!-- Background Parallax -->  
+<div id="videos">
+<section id="video-parallax" class="video-parallax padding parallaxie">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-7 col-sm-7">
+            <div class="heading-title whitecolor text-md-left text-center wow fadeIn" data-wow-delay="500ms">
+               <span>We have an excellent story</span>
+               <h2 class="fontregular">Watch Our Video</h2>
+               <a data-fancybox href="https://www.youtube.com/watch?v=GhvD7NtUT-Q&autoplay=1&rel=0&controls=1&showinfo=0" class="button btnprimary fontmedium top20"><i class="fa fa-play"></i> &nbsp;Play Now</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+</div>
+<!--Background Parallax-->     
 <!-- Contact US -->  
 <section id="contact" class="padding_top">
    <div class="container">
