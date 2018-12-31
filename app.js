@@ -50,8 +50,8 @@ app.use(function* (next) {
 app.use(require('koa-static')(__dirname + '/public'));
 
 // routes definition
-app.use(appRoute.routes(), appRoute.allowedMethods());
 app.use(adminRoute.routes(), adminRoute.allowedMethods());
+app.use(appRoute.routes(), appRoute.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {

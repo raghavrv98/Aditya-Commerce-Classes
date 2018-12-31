@@ -1,3 +1,19 @@
+CREATE TABLE admin(
+    id int unsigned NOT NULL AUTO_INCREMENT,
+    creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    name varchar(31) NOT NULL,
+    mobile char(10) NOT NULL,
+    password varchar(255) NOT NULL,
+    CONSTRAINT pk_admin PRIMARY KEY(id)
+);
+
+CREATE TABLE school(
+    id int unsigned NOT NULL AUTO_INCREMENT,
+    creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    name varchar(127) NOT NULL,
+    CONSTRAINT pk_school PRIMARY KEY(id)
+);
+
 CREATE TABLE student (
     id int unsigned NOT NULL AUTO_INCREMENT,
     creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -7,7 +23,9 @@ CREATE TABLE student (
     photo varchar(255) DEFAULT 'student.png',
     active boolean DEFAULT "0",
     batch char(6),
+    school_id int unsigned,
     CONSTRAINT unique_mobile UNIQUE(mobile),
+    CONSTRAINT fk_school_id_student FOREIGN KEY(school_id) REFERENCES school(id),
     CONSTRAINT pk_student PRIMARY KEY(id)
 );
 
