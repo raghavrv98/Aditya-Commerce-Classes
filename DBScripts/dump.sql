@@ -125,7 +125,7 @@ CREATE TABLE `fee_status` (
 
 LOCK TABLES `fee_status` WRITE;
 /*!40000 ALTER TABLE `fee_status` DISABLE KEYS */;
-INSERT INTO `fee_status` VALUES (1,'2018-12-31 16:00:32',1,1,1,1,0,0,0,0,0,0,0,0,0);
+INSERT INTO `fee_status` VALUES (1,'2018-12-31 17:55:05',1,0,0,0,0,0,0,0,0,1,1,1,1);
 /*!40000 ALTER TABLE `fee_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +220,7 @@ CREATE TABLE `student` (
   `batch` char(6) default NULL,
   `school_id` int(10) unsigned default NULL,
   `address` varchar(255) default NULL,
-  `dob` date default NULL,
+  `joining_date` date default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_mobile` (`mobile`),
   KEY `fk_school_id_student` (`school_id`),
@@ -233,7 +233,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'2018-12-31 15:51:15','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,1,'Radha Valley','1998-12-12');
+INSERT INTO `student` VALUES (1,'2018-12-31 18:15:36','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,1,'Radha Valley','2018-09-02');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-31 16:13:24
+-- Dump completed on 2019-01-01  8:29:10
