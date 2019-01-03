@@ -53,7 +53,7 @@
     </div>
   </div>
   <!--PreLoader Ends-->
-<% if(currentUser) { %>
+  <% if(currentUser) { %>
   <!-- header -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg fixed-top gradient_bg">
@@ -75,7 +75,7 @@
               <a class="nav-link pagescroll" href="#contact">contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
+              <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -100,8 +100,7 @@
               <a class="nav-link pagescroll" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
-            </li>
+              <a class="nav-link page-scroll" href="/logout">Logout</a> </li>
           </ul>
         </nav>
 
@@ -132,14 +131,20 @@
             </div>
             <h2 style="text-align:center">Attendance</h2><br>
             <table>
-            <% for(var i=0;i<attendanceList.length;i++) { %>
+              <% for(var i=0;i<attendanceList.length;i++) { %>
               <tr>
-                <td><%= attendanceList[i].lecture_date.toLocaleString().slice(0,15) %></td>
-                <td><%= attendanceList[i].course %></td>
-                <td><%= attendanceList[i].present %></td>
+                <td>
+                  <%= attendanceList[i].lecture_date.toLocaleString().slice(0,15) %>
+                </td>
+                <td>
+                  <%= attendanceList[i].course %>
+                </td>
+                <td>
+                  <%= attendanceList[i].present %>
+                </td>
               </tr>
-            <% } %>
-          </table>
+              <% } %>
+            </table>
 
 
 
@@ -297,7 +302,7 @@
     </div>
   </section>
   <% } else { %>
-    <h1> Unauthorised acess.. </h1>
+  <h1> Unauthorised acess.. </h1>
   <% } %>
   <!-- Contact US -->
   <section id="contact" class="padding_top">

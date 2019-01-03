@@ -39,5 +39,23 @@ module.exports = {
             'resultList': result,
             'currentUser': this.currentUser
         })
+    },
+
+    showExamSchedule: function* (next) {
+        yield this.render('student_exam_schedule', {
+            'currentUser': this.currentUser
+        })
+    },
+
+    showTimeTable: function* (next) {
+        yield this.render('student_timetable', {
+            'currentUser': this.currentUser
+        })
+    },
+
+    showSyllabus: function* (next) {
+        yield this.render('syllabus_for_student', {
+            'currentUser': this.currentUser
+        })
     }
 }
