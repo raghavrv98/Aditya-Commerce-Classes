@@ -57,7 +57,10 @@ module.exports = {
     },
 
     showSyllabus: function* (next) {
+        var query="SELECT course.name as course, course.syllabus as syllabus FROM course;"
+        var result=yield databaseUtils.executeQuery(query)
         yield this.render('syllabus_for_student', {
+            'syllabusList':result,
             'currentUser': this.currentUser
         })
     }

@@ -123,6 +123,7 @@
                 <th scope="col">Serial no.</th>
                 <th scope="col">Date</th>
                 <th scope="col">Subject</th>
+                <th scope="col">Max Marks</th>
               </tr>
             </thead>
             <tbody>
@@ -131,6 +132,7 @@
                 <th scope="row"> <%= i+1 %> </th>
                 <td> <%= (""+testList[i].test_date).slice(0,15) %> </td>
                 <td> <%= testList[i].course %> </td>
+                <td> <%= testList[i].max_marks %> </td>
             </tr>
             <% } %>
             </tbody>
