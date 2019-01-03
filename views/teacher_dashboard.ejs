@@ -51,7 +51,7 @@
    </div>
 </div>
 <!--PreLoader Ends-->
-<% if(currentUser.isAdmin) { %>
+
 <!-- header -->
 <header class="site-header">
    <nav class="navbar navbar-expand-lg fixed-top gradient_bg" >
@@ -72,8 +72,8 @@
                   <a class="nav-link pagescroll" href="#contact">contact</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link page-scroll"href="/logout">Logout</a>
-                </li>
+                <a class="nav-link page-scroll" href="/logout">Logout</a>
+            </li>
             </ul>
          </div>
       </div>
@@ -97,8 +97,8 @@
                 <a class="nav-link pagescroll" href="#contact">Contact</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link page-scroll"href="/logout">Logout</a>
-                </li>
+                <a class="nav-link page-scroll" href="/logout">Logout</a>
+            </li>
             </ul>
          </nav>
 
@@ -130,18 +130,17 @@
                                        <input type="text" name="sname" class="form-control" placeholder="Student's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
                                        <br><input type="text" name="fname" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
                                        <br><input type="text" name="phone" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
+                                       <br><input type="password" name="password" class="form-control" placeholder="Password" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
                                        <br><input type="text" name="scname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
                                        <br><input type="date" name="phone" class="form-control" placeholder="joining Date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <br><input type="email" name="email" class="form-control" placeholder="Email-Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <div class="form-check-inline" style="margin-left:10%;">
+                                       <br><div class="form-check-inline" style="margin-left:10%;">
                                           <input type="checkbox" class="form-check-input"><b>Accounts</b>&nbsp;
                                           <input type="checkbox" class="form-check-input" value=""><b>Business</b>&nbsp;
                                           <input type="checkbox" class="form-check-input" value=""><b>Economics</b>&nbsp;
                                           <input type="checkbox" class="form-check-input" value=""><b>English</b>&nbsp;
-                                          
-                                          </div>
+                                        </div>
                                       <br><br><textarea class="form-control" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;" required data-error="Please enter your Message" name="message"></textarea>
-                                      <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Send">
+                                      <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Submit">
 
                               </form>
                         </div>
@@ -162,18 +161,23 @@
 
                 <div class="col-md-4 col-6 our-address top40">
                     <h1 class="darkcolor"><a href="/admin-attendance"><i class="fa fa-file-text-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Attendance</h4></p></a>
+                   <p class="bottom15"><h4>Upload Attendance</h4></p></a>
                 </div>
                 
+                <div class="col-md-4 col-6 our-address top40">
+                    <h1 class="darkcolor"><a href="/admin-view-attendance"><i class="fa fa-eye" style="color:#00bcd4"></i></h1>
+                   <p class="bottom15"><h4>View Attendance</h4></p></a>
+                </div>
+
                 <div class="col-md-4 col-6 our-address top40">
                     <h1 class="darkcolor"><a href="/admin-create-exam"><i class="fa fa-file-text-fa fa-pencil-square-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Create New Exam</h4></p></a>
+                   <p class="bottom15"><h4>Create new Exams</h4></p></a>
                 </div>
                 
                 <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-fee-status"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Fees Details</h4></p></a>
-                </div>
+                  <h1 class="darkcolor"><a href="/admin-fee-status"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
+                    <p class="bottom15"><h4>Fees Details</h4></p></a>
+                  </div>
                 
                 <div class="col-md-4 col-6 our-address top40">
                     <h1 class="darkcolor"><a href="/admin-result"><i class="fa fa-bar-chart" style="color:#00bcd4"></i></h1>
@@ -194,9 +198,6 @@
        </div>
     </div>
  </section>
- <% }else{ %>
-   <h1>Unauthorised access..</h1>
-<% } %>
  
 <!-- Contact US -->  
 <section id="contact" class="padding_top">

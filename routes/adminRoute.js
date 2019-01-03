@@ -6,7 +6,8 @@ router.get('/admin-attendance', adminCtrl.attendance);
 router.get('/admin-create-exam', adminCtrl.createNewExam);
 router.get('/admin-fee-status', adminCtrl.showFeeStatus);
 router.get('/admin-result', adminCtrl.showResult);
-// router.get('/admin-update-syllabus', adminCtrl.updateSyllabus);
+router.get('/admin-view-attendance', adminCtrl.viewAttendance);
+router.get('/admin-update-syllabus', adminCtrl.updateSyllabus);
 router.get('/admin-update-timetable', adminCtrl.updateTimeTable);
 
 module.exports=router;

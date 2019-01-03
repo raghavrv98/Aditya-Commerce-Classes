@@ -15,6 +15,12 @@ module.exports = {
             'currentUser':this.currentUser
         })
     },
+    
+    viewAttendance:function*(next){
+        yield this.render('teacher_view_attendance',{
+            'currentUser':this.currentUser
+        })
+    },
 
     createNewExam:function*(next){
         yield this.render('teacher_create_exam',{
@@ -35,14 +41,14 @@ module.exports = {
     },
 
     updateTimeTable:function*(next){
-        yield this.render('teacher_update_syllabus',{
+        yield this.render('teacher_timetable',{
             'currentUser':this.currentUser
         })
     },
 
-    // updateSyllabus:function*(next){
-    //     yield this.render('teacher_update_syllabus',{
-    //         'currentUser':this.currentUser
-    //     })
-    // }
+    updateSyllabus:function*(next){
+        yield this.render('teacher_update_syllabus',{
+            'currentUser':this.currentUser
+        })
+    }
 }
