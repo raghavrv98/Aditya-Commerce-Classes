@@ -42,7 +42,10 @@ module.exports = {
     },
 
     showExamSchedule: function* (next) {
+        var query="SELECT test.test_date,course.name as course FROM test JOIN course ON course.id=test.course_id     ORDER BY test.test_date DESC;"
+        var result=yield databaseUtils.executeQuery(query);
         yield this.render('student_exam_schedule', {
+            'testList':result,
             'currentUser': this.currentUser
         })
     },

@@ -126,21 +126,13 @@
               </tr>
             </thead>
             <tbody>
+               <% for(var i=0;i<testList.length;i++){ %>
               <tr>
-                <th scope="row">1</th>
-                <td>12/12/2019</td>
-                <td>Accounts</td>
+                <th scope="row"> <%= i+1 %> </th>
+                <td> <%= (""+testList[i].test_date).slice(0,15) %> </td>
+                <td> <%= testList[i].course %> </td>
             </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>13/12/2019</td>
-                <td>Accounts</td>
-              </tr>
-              <tr>
-                    <th scope="row">3</th>
-                    <td>14/12/2019</td>
-                    <td>Accounts</td>
-                  </tr>
+            <% } %>
             </tbody>
           </table>
     </div>
