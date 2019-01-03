@@ -51,7 +51,7 @@
    </div>
 </div>
 <!--PreLoader Ends-->
-<% if(currentUser.isAdmin) { %>
+
 <!-- header -->
 <header class="site-header">
    <nav class="navbar navbar-expand-lg fixed-top gradient_bg" >
@@ -72,7 +72,7 @@
                   <a class="nav-link pagescroll" href="#contact">contact</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link page-scroll"href="/logout">Logout</a>
+                    <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
                 </li>
             </ul>
          </div>
@@ -97,7 +97,7 @@
                 <a class="nav-link pagescroll" href="#contact">Contact</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link page-scroll"href="/logout">Logout</a>
+                    <a class="nav-link page-scroll" data-toggle="modal" href="#login">Login</a>
                 </li>
             </ul>
          </nav>
@@ -114,90 +114,122 @@
    <!-- End side menu -->
 </header>
 <!-- header -->
-    <!-- Enquiry modal-->
-    <div class="container">    
-                            
-            <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                     <div class="modal-content">
-                                     <div class="modal-header" style="background-color:#0683c9">
-                                          <h4 style="color:white">Registration Form</h4>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                       </div>
-                                  <div class="modal-body">
-                                     <br>
-                                     <form method="post" action = "/app/signin">
-                                       <input type="text" name="sname" class="form-control" placeholder="Student's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <br><input type="text" name="fname" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <br><input type="text" name="phone" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
-                                       <br><input type="text" name="scname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>  
-                                       <br><input type="date" name="phone" class="form-control" placeholder="joining Date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <br><input type="email" name="email" class="form-control" placeholder="Email-Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                                       <div class="form-check-inline" style="margin-left:10%;">
-                                          <input type="checkbox" class="form-check-input"><b>Accounts</b>&nbsp;
-                                          <input type="checkbox" class="form-check-input" value=""><b>Business</b>&nbsp;
-                                          <input type="checkbox" class="form-check-input" value=""><b>Economics</b>&nbsp;
-                                          <input type="checkbox" class="form-check-input" value=""><b>English</b>&nbsp;
-                                          
+<section id="home" class="padding_top" style="color:black">
+ <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+            <div class="panel with-nav-tabs panel-success">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li><a href="#accounts" data-toggle="tab" class="btn btn-common">Accounts </a></li>
+                            <li><a href="#business" data-toggle="tab" class="btn btn-common">Business </a></li>
+                            <li><a href="#economics" data-toggle="tab" class="btn btn-common">Economics </a></li>
+                            <li><a href="#english" data-toggle="tab" class="btn btn-common">English</a></li>
+                        </ul>
+                </div>
+                <h2 style="text-align:center">Time Table</h2><br>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade" id="accounts">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                          <br>   
+
+                                          <table class="table table-hover">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Days</th>
+                                                    <th scope="col">Accounts</th>
+                                                    <th scope="col">Business</th>
+                                                    <th scope="col">Economics</th>
+                                                    <th scope="col">English</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">Monday</th> 
+                                                    <td>2:00 - 3:00</td>
+                                                    <td>3:00 - 4:00</td>
+                                                    <td>4:00 - 5:00</td>
+                                                    <td>5:00 - 6:00</td>
+                                                  </tr>
+                                                  <tr>
+                                                        <th scope="row">Tuesday</th> 
+                                                        <td>2:00 - 3:00</td>
+                                                        <td>3:00 - 4:00</td>
+                                                        <td>4:00 - 5:00</td>
+                                                        <td>5:00 - 6:00</td>
+                                                      </tr>              <tr>
+                                                            <th scope="row">Wednesday</th> 
+                                                            <td>2:00 - 3:00</td>
+                                                            <td>3:00 - 4:00</td>
+                                                            <td>4:00 - 5:00</td>
+                                                            <td>5:00 - 6:00</td>
+                                                          </tr>              <tr>
+                                                                <th scope="row">Thursday</th> 
+                                                                <td>2:00 - 3:00</td>
+                                                                <td>3:00 - 4:00</td>
+                                                                <td>4:00 - 5:00</td>
+                                                                <td>5:00 - 6:00</td>
+                                                              </tr>              <tr>
+                                                                    <th scope="row">Friday</th> 
+                                                                    <td>2:00 - 3:00</td>
+                                                                    <td>3:00 - 4:00</td>
+                                                                    <td>4:00 - 5:00</td>
+                                                                    <td>5:00 - 6:00</td>
+                                                                  </tr>              <tr>
+                                                                        <th scope="row">saturday</th> 
+                                                                        <td>2:00 - 3:00</td>
+                                                                        <td>3:00 - 4:00</td>
+                                                                        <td>4:00 - 5:00</td>
+                                                                        <td>5:00 - 6:00</td>
+                                                                      </tr>
+                                    
+                                                </tbody>
+                                              </table> 
+                                  </div>
+                                </div>
+                              </div><br></div>
+                              <div class="tab-pane fade" id="business">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                                                  <br>   
+                                                  Space for syllabus
+                                                    
                                           </div>
-                                      <br><br><textarea class="form-control" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;" required data-error="Please enter your Message" name="message"></textarea>
-                                      <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Send">
-
-                              </form>
-                        </div>
+                                        </div>
+                                      </div><br></div>
+                                      <div class="tab-pane fade" id="economics">
+                                            <div class="container">
+                                              <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                                          <br>   
+                                                          Space for syllabus
+                                                         
+                                                  </div>
+                                                </div>
+                                              </div><br></div>
+                                              <div class="tab-pane fade" id="english">
+                                                    <div class="container">
+                                                      <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                                                                  <br>   
+                                                                  Space for syllabus
+                                                                    
+                                                                 
+                                                          </div>
+                                                        </div>
+                                                      </div><br></div>
                     </div>
-                 </div>
-               </div></div>
+                </div>
+            </div>
+        </div>
 
-<section id="home" class="padding_top">
-    <div class="container">
-       <div class="row">
-         <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" style="margin-left: 13%" data-wow-delay="350ms">
-             <div class="row">
-                    
-                <div class="col-md-4 col-6 our-address top40">
-                            <h1 class="darkcolor"><a data-toggle="modal" href="#registration"><i class="fa fa-pencil" style="color:#00bcd4"></i></h1>
-                           <p class="bottom15"><h4>Registration</h4></p></a>
-                        </div>
-
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-attendance"><i class="fa fa-file-text-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Attendance</h4></p></a>
-                </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-create-exam"><i class="fa fa-file-text-fa fa-pencil-square-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Create New Exam</h4></p></a>
-                </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-fee-status"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Fees Details</h4></p></a>
-                </div>
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-result"><i class="fa fa-bar-chart" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Result</h4></p></a>
-                </div>          
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-update-syllabus"><i class="fa fa-files-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Syllabus</h4></p></a>
-                </div>                                
-                
-                <div class="col-md-4 col-6 our-address top40">
-                    <h1 class="darkcolor"><a href="/admin-update-timetable"><i class="fa fa-calendar-check-o" style="color:#00bcd4"></i></h1>
-                   <p class="bottom15"><h4>Time Table</h4></p></a>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <% }else{ %>
-   <h1>Unauthorised access..</h1>
-<% } %>
- 
+  </div>
+</div>
+</section>
 <!-- Contact US -->  
 <section id="contact" class="padding_top">
    <div class="container">
