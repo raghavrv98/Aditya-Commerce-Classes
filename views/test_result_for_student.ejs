@@ -74,7 +74,7 @@
               <a class="nav-link pagescroll" href="#contact">contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll"href="/logout">Logout</a>
+              <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -99,7 +99,7 @@
               <a class="nav-link pagescroll" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll"href="/logout">Logout</a>
+              <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
         </nav>
@@ -130,21 +130,6 @@
               </ul>
             </div>
             <h2 style="text-align:center">Test Results</h2><br>
-
-            <table>
-            <% for(var i=0;i<resultList.length;i++) { %>
-              <tr>
-                <td> <%= resultList[i].course %></td>
-                <td> <%= resultList[i].test_date.toLocaleString().slice(0,10) %></td>
-                <td> <%= resultList[i].name %></td>
-                <td> <%= resultList[i].marks_obtained %></td>
-                <td> <%= resultList[i].max_marks %></td>
-              </tr>
-            <% } %>
-            </table>
-
-
-
             <div class="panel-body">
               <div class="tab-content">
                 <div class="tab-pane fade" id="accounts">
@@ -157,29 +142,29 @@
                             <tr>
                               <th scope="col">Serial no.</th>
                               <th scope="col">Date</th>
+                              <th scope="col">Name</th>
                               <th scope="col">Marks Obtained</th>
                               <th scope="col">Maximum Marks</th>
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<resultList.length;i++){ %>
+                            <% if(resultList[i].course=="Accounting"){ %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= (""+resultList[i].test_date).slice(0,15) %>
+                              </td>
+                              <td>
+                                <%= resultList[i].marks_obtained %>
+                              </td>
+                              <td>
+                                <%= resultList[i].max_marks %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -201,24 +186,23 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<resultList.length;i++){ %>
+                            <% if(resultList[i].course=="Business Studies"){ %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= (""+resultList[i].test_date).slice(0,15) %>
+                              </td>
+                              <td>
+                                <%= resultList[i].marks_obtained %>
+                              </td>
+                              <td>
+                                <%= resultList[i].max_marks %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -240,24 +224,23 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
+                            <% for(var i=0,sn=1;i<resultList.length;i++) { %>
+                              <% if(resultList[i].course=="Economics"){ %>
+                              <tr>
+                                <th scope="row">
+                                  <%= sn++ %>
+                                </th>
+                                <td>
+                                  <%= (""+resultList[i].test_date).slice(0,15) %>
+                                </td>
+                                <td>
+                                  <%= resultList[i].marks_obtained %>
+                                </td>
+                                <td>
+                                  <%= resultList[i].max_marks %>
+                                </td>
+                              </tr>
+                              <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -279,24 +262,23 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td>87</td>
-                              <td>100</td>
-                            </tr>
+                            <% for(var i=0,sn=1;i<resultList.length;i++) { %>
+                              <% if(resultList[i].course=="English"){ %>
+                              <tr>
+                                <th scope="row">
+                                  <%= sn++ %>
+                                </th>
+                                <td>
+                                  <%= (""+resultList[i].test_date).slice(0,15) %>
+                                </td>
+                                <td>
+                                  <%= resultList[i].marks_obtained %>
+                                </td>
+                                <td>
+                                  <%= resultList[i].max_marks %>
+                                </td>
+                              </tr>
+                              <% }} %>
                           </tbody>
                         </table>
 
