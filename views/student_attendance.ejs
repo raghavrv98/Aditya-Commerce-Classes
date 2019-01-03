@@ -130,26 +130,6 @@
               </ul>
             </div>
             <h2 style="text-align:center">Attendance</h2><br>
-            <table>
-              <% for(var i=0;i<attendanceList.length;i++) { %>
-              <tr>
-                <td>
-                  <%= attendanceList[i].lecture_date.toLocaleString().slice(0,15) %>
-                </td>
-                <td>
-                  <%= attendanceList[i].course %>
-                </td>
-                <td>
-                  <%= attendanceList[i].present %>
-                </td>
-              </tr>
-              <% } %>
-            </table>
-
-
-
-
-
             <div class="panel-body">
               <div class="tab-content">
                 <div class="tab-pane fade" id="accounts">
@@ -166,21 +146,24 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<attendanceList.length;i++) { %>
+                            <% if(attendanceList[i].course=="Accounting") { %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= attendanceList[i].lecture_date.toLocaleString().slice(0,8) %>
+                              </td>
+                              <td>
+                                <% if(attendanceList[i].present==1){ %>
+                                <i class="fa fa-check" style="font-size:20px;color:green"></i>
+                                <% } else { %>
+                                <i class="fa fa-times" style="font-size:20px;color:red"></i>
+                                <% } %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -201,21 +184,24 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<attendanceList.length;i++) { %>
+                            <% if(attendanceList[i].course=="Business Studies") { %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= attendanceList[i].lecture_date.toLocaleString().slice(0,8) %>
+                              </td>
+                              <td>
+                                <% if(attendanceList[i].present==1){ %>
+                                <i class="fa fa-check" style="font-size:20px;color:green"></i>
+                                <% } else { %>
+                                <i class="fa fa-times" style="font-size:20px;color:red"></i>
+                                <% } %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -236,21 +222,24 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<attendanceList.length;i++) { %>
+                            <% if(attendanceList[i].course=="Economics") { %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= attendanceList[i].lecture_date.toLocaleString().slice(0,8) %>
+                              </td>
+                              <td>
+                                <% if(attendanceList[i].present==1){ %>
+                                <i class="fa fa-check" style="font-size:20px;color:green"></i>
+                                <% } else { %>
+                                <i class="fa fa-times" style="font-size:20px;color:red"></i>
+                                <% } %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
                       </div>
@@ -271,21 +260,24 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0,sn=1;i<attendanceList.length;i++) { %>
+                            <% if(attendanceList[i].course=="English") { %>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>12/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <th scope="row">
+                                <%= sn++ %>
+                              </th>
+                              <td>
+                                <%= attendanceList[i].lecture_date.toLocaleString().slice(0,8) %>
+                              </td>
+                              <td>
+                                <% if(attendanceList[i].present==1){ %>
+                                <i class="fa fa-check" style="font-size:20px;color:green"></i>
+                                <% } else { %>
+                                <i class="fa fa-times" style="font-size:20px;color:red"></i>
+                                <% } %>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>13/12/2019</td>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>14/12/2019</td>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
+                            <% }} %>
                           </tbody>
                         </table>
 
