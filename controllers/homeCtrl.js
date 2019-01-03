@@ -4,7 +4,9 @@ var sessionUtils = require('./../utils/sessionUtils')
 
 module.exports = {
     showHome: function* (next) {
-        yield this.render('index', {})
+        yield this.render('index', {
+            'currentUser':this.currentUser
+        })
     },
 
     login: function* (next) {
