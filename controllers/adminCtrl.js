@@ -1,3 +1,6 @@
+var util=require('util')
+var databaseUtils=require('./../utils/databaseUtils')
+
 module.exports = {
     showDashboard: function* (next) {
         if (this.currentUser) {
@@ -50,5 +53,39 @@ module.exports = {
         yield this.render('teacher_update_syllabus',{
             'currentUser':this.currentUser
         })
+    },
+
+    registerStudent:function*(next){
+        console.log(this.request.body)
+        var studentname=this.request.body.studentname
+        var fathername=this.request.body.fathername
+        var phone=this.request.body.phone
+        var school=this.request.body.phone
+        var joiningdate=this.request.body.joiningdate
+        var address=this.request.body.address
+        var password=this.request.body.password
+
+        var query=util.format('INSERT INTO student(name,mobile,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","1");',studentname,phone,password,address,joiningdate,school,fathername);
+        console.log("query",query)
+        var result=yield databaseUtils.executeQuery(query)
+        console.log("RESULT",result)
+        var stu_id=result.insertId;
+        if(this.request.body.bs){
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","1")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+        }
+        if(this.request.body.accounts){
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","3")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+        }
+        if(this.request.body.economics){
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","2")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+        }
+        if(this.request.body.english){
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","4")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+        }
+        this.redirect('/admin')
     }
 }
