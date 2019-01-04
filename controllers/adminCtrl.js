@@ -50,7 +50,7 @@ module.exports = {
         })
     },
 
-    updateSyllabus:function*(next){
+    showSyllabusUpdateForm:function*(next){
         yield this.render('teacher_update_syllabus',{
             'currentUser':this.currentUser
         })
@@ -96,5 +96,16 @@ module.exports = {
         var result=yield databaseUtils.executeQuery(query)
         console.log(result)
         this.redirect('/admin-create-exam')
+    },
+
+    updateSyllabus:function*(next){
+        console.log(this.request.body)
+        var courseId=this.request.body.courseId
+        var syllabus=this.request.body.syllabus
+        var query=util.format('UPDATE course SET syllabus="%s" WHERE id="%s";',syllabus, courseId)
+        console.log(query);
+        var result=yield databaseUtils.executeQuery(query)
+        console.log(result)
+        this.redirect('/admin-update-syllabus')
     }
 }
