@@ -25,7 +25,8 @@ module.exports = {
         })
     },
 
-    createNewExam:function*(next){
+    showNewExamForm:function*(next){
+        console.log()
         yield this.render('teacher_create_exam',{
             'currentUser':this.currentUser
         })
@@ -87,5 +88,13 @@ module.exports = {
             result=yield databaseUtils.executeQuery(query)
         }
         this.redirect('/admin')
+    },
+
+    createNewExam:function*(next){
+        console.log(this.request.body)
+        var query=util.format('INSERT INTO test (test_date, course_id, max_marks) VALUES ("%s","%s","%s");',this.request.body.testDate, this.request.body.courseId, this.request.body.maxMarks)
+        var result=yield databaseUtils.executeQuery(query)
+        console.log(result)
+        this.redirect('/admin-create-exam')
     }
 }

@@ -117,7 +117,7 @@
 <section id="home" class="padding_top" style="color:black">
     <div class="container">
         <h2 style="text-align:center"> Create Exam</h2><br>
-        <form method="post" action = "/app/signin">
+        <form method="post" action = "/admin-create-exam">
         <table class="table table-hover">
             <thead>
               <tr>
@@ -130,16 +130,16 @@
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td><input type="date" name="tarik"></td>
+                <td><input type="date" name="testDate"></td>
                 <td>
-                  <select class="custom-select" style="width:250px;">
+                  <select name="courseId" class="custom-select" style="width:250px;">
                     <option selected>Subjects</option>
-                    <option value="Accounting">Accounts</option>
-                    <option value="Business Studies">Business Studies</option>
-                    <option value="Economics">Economics</option>
-                    <option value="English">English</option>
+                    <option value="1">Accounts</option>
+                    <option value="3">Business Studies</option>
+                    <option value="2">Economics</option>
+                    <option value="4">English</option>
                   </select></td>
-                  <td><input type="number"></td>
+                  <td><input type="number" name="maxMarks"></td>
             </tr>
             </tbody>
           </table>
