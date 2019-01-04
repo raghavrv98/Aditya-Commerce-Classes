@@ -31,7 +31,7 @@ CREATE TABLE `attendance` (
   KEY `fk_stu_id_attendance` (`stu_id`),
   CONSTRAINT `fk_lecture_id_attendance` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`),
   CONSTRAINT `fk_stu_id_attendance` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -39,7 +39,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2018-12-31 16:04:51',1,1,0),(2,'2018-12-31 16:04:59',2,1,1);
+INSERT INTO `attendance` VALUES (1,'2018-12-31 16:04:51',1,1,0),(2,'2018-12-31 16:04:59',2,1,1),(3,'2019-01-03 08:01:39',3,1,1);
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,6 +52,7 @@ CREATE TABLE `course` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `creation_timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `name` varchar(20) NOT NULL,
+  `syllabus` text,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -61,7 +62,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'2018-12-31 15:55:06','Accounting'),(2,'2018-12-31 15:55:15','Economics'),(3,'2018-12-31 15:55:25','Business Studies'),(4,'2018-12-31 15:55:31','English');
+INSERT INTO `course` VALUES (1,'2019-01-03 08:54:52','Accounting','Financial Statements of Not-for-Profit Organizations, Accounting for Partnership Firms, Accounting for Companies, Analysis of Financial Statements, Cash Flow Statement'),(2,'2019-01-03 09:02:34','Economics','Introduction, Consumer\'s Equilibrium and Demand, Producer Behaviour and Supply, Forms of Market and Price Determination, National Income and Related Aggregates, Money and Banking, Determination of Income and Employment, Government Budget and the Economy, Balance of Payments'),(3,'2019-01-03 09:06:33','Business Studies','Nature and Significance of Management, Principles of Management, Business Environment, Planning, Organizing, Staffing, Directing, Controlling, Financial Management, Financial Markets, Marketing Management,Consumer Protection'),(4,'2019-01-04 09:05:28','English','Reading Comprehension, Writing Skills, Literature & Long Reading Text');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +82,7 @@ CREATE TABLE `enrollment` (
   KEY `fk_stu_id_enrollment` (`stu_id`),
   CONSTRAINT `fk_course_id_enrollment` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`),
   CONSTRAINT `fk_stu_id_enrollment` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enrollment`
@@ -89,7 +90,7 @@ CREATE TABLE `enrollment` (
 
 LOCK TABLES `enrollment` WRITE;
 /*!40000 ALTER TABLE `enrollment` DISABLE KEYS */;
-INSERT INTO `enrollment` VALUES (1,'2018-12-31 15:56:32',1,1,NULL),(2,'2018-12-31 15:56:41',2,1,NULL),(3,'2018-12-31 15:56:45',3,1,NULL),(4,'2018-12-31 15:56:52',4,1,NULL);
+INSERT INTO `enrollment` VALUES (1,'2018-12-31 15:56:32',1,1,NULL),(2,'2018-12-31 15:56:41',2,1,NULL),(3,'2018-12-31 15:56:45',3,1,NULL),(4,'2018-12-31 15:56:52',4,1,NULL),(5,'2019-01-04 07:00:11',2,2,NULL),(6,'2019-01-04 07:00:19',3,2,NULL),(7,'2019-01-04 07:11:29',1,4,NULL),(8,'2019-01-04 07:11:29',4,4,NULL);
 /*!40000 ALTER TABLE `enrollment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +144,7 @@ CREATE TABLE `lecture` (
   PRIMARY KEY  (`id`),
   KEY `fk_course_id_lecture` (`course_id`),
   CONSTRAINT `fk_course_id_lecture` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lecture`
@@ -151,7 +152,7 @@ CREATE TABLE `lecture` (
 
 LOCK TABLES `lecture` WRITE;
 /*!40000 ALTER TABLE `lecture` DISABLE KEYS */;
-INSERT INTO `lecture` VALUES (1,'2018-12-31 16:03:13','2019-01-01',NULL,1),(2,'2018-12-31 16:03:35','2019-01-01',NULL,2);
+INSERT INTO `lecture` VALUES (1,'2018-12-31 16:03:13','2019-01-01',NULL,1),(2,'2018-12-31 16:03:35','2019-01-01',NULL,2),(3,'2019-01-03 08:01:01','2019-01-02',NULL,2);
 /*!40000 ALTER TABLE `lecture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,28 +184,6 @@ INSERT INTO `parent` VALUES (1,'2018-12-31 15:53:37',1,'8620422423','gulati','Ra
 UNLOCK TABLES;
 
 --
--- Table structure for table `school`
---
-
-DROP TABLE IF EXISTS `school`;
-CREATE TABLE `school` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `creation_timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `name` varchar(127) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `school`
---
-
-LOCK TABLES `school` WRITE;
-/*!40000 ALTER TABLE `school` DISABLE KEYS */;
-INSERT INTO `school` VALUES (1,'2018-12-31 15:46:58','Delhi Public School');
-/*!40000 ALTER TABLE `school` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `student`
 --
 
@@ -218,14 +197,13 @@ CREATE TABLE `student` (
   `photo` varchar(255) default 'student.png',
   `active` tinyint(1) default '0',
   `batch` char(6) default NULL,
-  `school_id` int(10) unsigned default NULL,
   `address` varchar(255) default NULL,
   `joining_date` date default NULL,
+  `school` varchar(127) default NULL,
+  `parent` varchar(31) default NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `unique_mobile` (`mobile`),
-  KEY `fk_school_id_student` (`school_id`),
-  CONSTRAINT `fk_school_id_student` FOREIGN KEY (`school_id`) REFERENCES `school` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `unique_mobile` (`mobile`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
@@ -233,7 +211,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'2018-12-31 18:15:36','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,1,'Radha Valley','2018-09-02');
+INSERT INTO `student` VALUES (1,'2019-01-04 06:31:49','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,'Radha Valley','2018-09-02','Amar Nath','Rajesh Gulati'),(2,'2019-01-04 06:55:07','Gaurang Sharma','1234567890','gaurang','student.png',1,NULL,'asdfghjk','2019-01-05','1234567890','Gauri Sharma'),(4,'2019-01-04 07:11:29','Himanshu Goyal','2345678901','himanshu','student.png',1,NULL,'kosi','2019-01-07','2345678901','HK Goyal');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +254,7 @@ CREATE TABLE `test` (
   PRIMARY KEY  (`id`),
   KEY `fk_course_id_test` (`course_id`),
   CONSTRAINT `fk_course_id_test` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `test`
@@ -284,7 +262,7 @@ CREATE TABLE `test` (
 
 LOCK TABLES `test` WRITE;
 /*!40000 ALTER TABLE `test` DISABLE KEYS */;
-INSERT INTO `test` VALUES (1,'2018-12-31 16:07:50','2018-12-31',2,NULL,100);
+INSERT INTO `test` VALUES (1,'2018-12-31 16:07:50','2018-12-31',2,NULL,100),(2,'2019-01-04 08:27:39','2019-01-06',2,NULL,100),(3,'2019-01-04 08:28:46','2019-01-05',4,NULL,70);
 /*!40000 ALTER TABLE `test` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,8 +280,8 @@ CREATE TABLE `test_result` (
   PRIMARY KEY  (`id`),
   KEY `fk_test_id_test_result` (`test_id`),
   KEY `fk_stu_id_test_result` (`stu_id`),
-  CONSTRAINT `fk_test_id_test_result` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`),
-  CONSTRAINT `fk_stu_id_test_result` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
+  CONSTRAINT `fk_stu_id_test_result` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`),
+  CONSTRAINT `fk_test_id_test_result` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
@@ -325,4 +303,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-01  8:29:10
+-- Dump completed on 2019-01-04 10:38:38
