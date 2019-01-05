@@ -33,7 +33,7 @@ module.exports = {
     },
 
     showTestResult: function* (next) {
-        var query = util.format("SELECT course.name as course, test.test_date, student.name,test_result.marks_obtained, test.max_marks FROM test_result JOIN test ON test.id=test_result.test_id JOIN course ON course.id=test.course_id JOIN student ON student.id=test_result.stu_id GROUP BY test.id ORDER BY test.test_date DESC, test_result.marks_obtained DESC;")
+        var query = util.format("SELECT course.name as course, test.test_date, student.name,test_result.marks_obtained, test.max_marks FROM test_result JOIN test ON test.id=test_result.test_id JOIN course ON course.id=test.course_id JOIN student ON student.id=test_result.stu_id ORDER BY test.test_date DESC, test_result.marks_obtained DESC;")
         var result = yield databaseUtils.executeQuery(query)
         yield this.render('test_result_for_student', {
             'resultList': result,

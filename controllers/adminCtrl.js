@@ -38,10 +38,57 @@ module.exports = {
         })
     },
 
-    showResult:function*(next){
+    showUploadResultForm:function*(next){
+        var query=util.format('SELECT id,test_date, max_marks FROM test where course_id=1 ORDER BY test_date DESC LIMIT 10;')
+        var accountsTestList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT id,test_date, max_marks FROM test where course_id=2 ORDER BY test_date DESC LIMIT 10;')
+        var economicsTestList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT id,test_date, max_marks FROM test where course_id=3 ORDER BY test_date DESC LIMIT 10;')
+        var bsTestList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT id,test_date, max_marks FROM test where course_id=4 ORDER BY test_date DESC LIMIT 10;')
+        var englishTestList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1;')
+        var accStudent=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=2 AND student.active=1;')
+        var ecoStudent=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=3 AND student.active=1;')
+        var bsStudent=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=4 AND student.active=1;')
+        var engStudent=yield databaseUtils.executeQuery(query)
+
         yield this.render('teacher_test_result',{
-            'currentUser':this.currentUser
+            'currentUser':this.currentUser,
+            'accountsTestList':accountsTestList,
+            'economicsTestList':economicsTestList,
+            'bsTestList':bsTestList,
+            'englishTestList':englishTestList,
+            'accStudent':accStudent,
+            'ecoStudent':ecoStudent,
+            'bsStudent':bsStudent,
+            'engStudent':engStudent
         })
+    },
+
+    uploadResult:function*(next){
+        console.log(this.request.body)
+        var testId=this.request.body.testId
+        var marks=this.request.body.marks
+        var studentIds=this.request.body.studentId
+        var query=''
+        var result=''
+        for(var i=0;i<marks.length;i++){
+            query=util.format('INSERT INTO test_result(test_id, stu_id,marks_obtained) VALUES ("%s","%s","%s");',testId,studentIds[i],marks[i])
+            result=yield databaseUtils.executeQuery(query)
+            console.log(result)
+        }
+        this.redirect('/admin-result')
     },
 
     showTimeTable:function*(next){
