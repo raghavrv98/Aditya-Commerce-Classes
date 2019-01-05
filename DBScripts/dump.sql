@@ -82,7 +82,7 @@ CREATE TABLE `enrollment` (
   KEY `fk_stu_id_enrollment` (`stu_id`),
   CONSTRAINT `fk_course_id_enrollment` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`),
   CONSTRAINT `fk_stu_id_enrollment` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enrollment`
@@ -90,7 +90,7 @@ CREATE TABLE `enrollment` (
 
 LOCK TABLES `enrollment` WRITE;
 /*!40000 ALTER TABLE `enrollment` DISABLE KEYS */;
-INSERT INTO `enrollment` VALUES (1,'2018-12-31 15:56:32',1,1,NULL),(2,'2018-12-31 15:56:41',2,1,NULL),(3,'2018-12-31 15:56:45',3,1,NULL),(4,'2018-12-31 15:56:52',4,1,NULL),(5,'2019-01-04 07:00:11',2,2,NULL),(6,'2019-01-04 07:00:19',3,2,NULL),(7,'2019-01-04 07:11:29',1,4,NULL),(8,'2019-01-04 07:11:29',4,4,NULL);
+INSERT INTO `enrollment` VALUES (1,'2018-12-31 15:56:32',1,1,NULL),(2,'2018-12-31 15:56:41',2,1,NULL),(3,'2018-12-31 15:56:45',3,1,NULL),(4,'2018-12-31 15:56:52',4,1,NULL),(5,'2019-01-04 07:00:11',2,2,NULL),(6,'2019-01-04 07:00:19',3,2,NULL),(7,'2019-01-04 07:11:29',1,4,NULL),(8,'2019-01-04 07:11:29',4,4,NULL),(9,'2019-01-05 11:13:34',1,5,NULL),(10,'2019-01-05 11:13:34',3,5,NULL),(11,'2019-01-05 11:13:34',2,5,NULL);
 /*!40000 ALTER TABLE `enrollment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +102,7 @@ DROP TABLE IF EXISTS `fee_status`;
 CREATE TABLE `fee_status` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `creation_timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `stu_id` int(10) unsigned NOT NULL,
+  `enrol_id` int(10) unsigned NOT NULL,
   `jan` tinyint(1) default '0',
   `feb` tinyint(1) default '0',
   `mar` tinyint(1) default '0',
@@ -116,9 +116,9 @@ CREATE TABLE `fee_status` (
   `nov` tinyint(1) default '0',
   `decem` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
-  KEY `fk_stu_id_fee` (`stu_id`),
-  CONSTRAINT `fk_stu_id_fee` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `fk_enrol_id_fee` (`enrol_id`),
+  CONSTRAINT `fk_enrol_id_fee` FOREIGN KEY (`enrol_id`) REFERENCES `enrollment` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `fee_status`
@@ -126,7 +126,7 @@ CREATE TABLE `fee_status` (
 
 LOCK TABLES `fee_status` WRITE;
 /*!40000 ALTER TABLE `fee_status` DISABLE KEYS */;
-INSERT INTO `fee_status` VALUES (1,'2018-12-31 17:55:05',1,0,0,0,0,0,0,0,0,1,1,1,1);
+INSERT INTO `fee_status` VALUES (1,'2019-01-05 11:02:42',1,0,0,0,0,0,0,0,0,0,0,0,0),(2,'2019-01-05 11:02:45',2,0,0,0,0,0,0,0,0,0,0,0,0),(3,'2019-01-05 11:02:47',3,0,0,0,0,0,0,0,0,0,0,0,0),(4,'2019-01-05 11:02:51',4,0,0,0,0,0,0,0,0,0,0,0,0),(5,'2019-01-05 11:02:53',5,0,0,0,0,0,0,0,0,0,0,0,0),(6,'2019-01-05 11:02:56',6,0,0,0,0,0,0,0,0,0,0,0,0),(7,'2019-01-05 11:02:58',7,0,0,0,0,0,0,0,0,0,0,0,0),(8,'2019-01-05 11:03:02',8,0,0,0,0,0,0,0,0,0,0,0,0),(9,'2019-01-05 12:10:35',9,1,1,1,1,1,1,0,0,0,0,0,0),(10,'2019-01-05 11:13:34',10,0,0,0,0,0,0,0,0,0,0,0,0),(11,'2019-01-05 11:13:34',11,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `fee_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `student` (
   `parent` varchar(31) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_mobile` (`mobile`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
@@ -211,7 +211,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'2019-01-04 06:31:49','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,'Radha Valley','2018-09-02','Amar Nath','Rajesh Gulati'),(2,'2019-01-04 06:55:07','Gaurang Sharma','1234567890','gaurang','student.png',1,NULL,'asdfghjk','2019-01-05','1234567890','Gauri Sharma'),(4,'2019-01-04 07:11:29','Himanshu Goyal','2345678901','himanshu','student.png',1,NULL,'kosi','2019-01-07','2345678901','HK Goyal');
+INSERT INTO `student` VALUES (1,'2019-01-04 06:31:49','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,'Radha Valley','2018-09-02','Amar Nath','Rajesh Gulati'),(2,'2019-01-04 06:55:07','Gaurang Sharma','1234567890','gaurang','student.png',1,NULL,'asdfghjk','2019-01-05','1234567890','Gauri Sharma'),(4,'2019-01-04 07:11:29','Himanshu Goyal','2345678901','himanshu','student.png',1,NULL,'kosi','2019-01-07','2345678901','HK Goyal'),(5,'2019-01-05 11:13:33','Rahul Dixit','9638527410','rahul','student.png',1,NULL,'Shahjahanpur','2019-01-07','9638527410','RDX');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +282,7 @@ CREATE TABLE `test_result` (
   KEY `fk_stu_id_test_result` (`stu_id`),
   CONSTRAINT `fk_stu_id_test_result` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`),
   CONSTRAINT `fk_test_id_test_result` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `test_result`
@@ -290,7 +290,7 @@ CREATE TABLE `test_result` (
 
 LOCK TABLES `test_result` WRITE;
 /*!40000 ALTER TABLE `test_result` DISABLE KEYS */;
-INSERT INTO `test_result` VALUES (1,'2018-12-31 16:08:57',1,1,95);
+INSERT INTO `test_result` VALUES (1,'2018-12-31 16:08:57',1,1,95),(2,'2019-01-05 10:03:05',3,1,60),(3,'2019-01-05 10:03:05',3,4,25),(4,'2019-01-05 10:03:44',2,1,85),(5,'2019-01-05 10:03:44',2,2,11);
 /*!40000 ALTER TABLE `test_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-05  7:31:28
+-- Dump completed on 2019-01-05 12:44:13
