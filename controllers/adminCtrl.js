@@ -44,8 +44,12 @@ module.exports = {
         })
     },
 
-    updateTimeTable:function*(next){
+    showTimeTable:function*(next){
+        var query=util.format("SELECT course_id,img FROM timetable;")
+        var result=yield databaseUtils.executeQuery(query)
+        console.log(result)
         yield this.render('teacher_timetable',{
+            'timetableList':result,
             'currentUser':this.currentUser
         })
     },
@@ -107,5 +111,14 @@ module.exports = {
         var result=yield databaseUtils.executeQuery(query)
         console.log(result)
         this.redirect('/admin-update-syllabus')
+    },
+
+    updateTimeTable:function*(next){
+        var courseId=this.request.body.fields.courseId
+        var img=(this.request.body.files.timetable.path).split('\\')[2]
+        var query=util.format('UPDATE timetable SET img="%s" WHERE course_id="%s";',img,courseId);
+        var result=yield databaseUtils.executeQuery(query)
+        console.log(result);
+        this.redirect('/admin-update-timetable')
     }
 }

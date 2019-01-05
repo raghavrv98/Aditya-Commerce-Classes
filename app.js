@@ -7,7 +7,7 @@ var app = require('koa')(),
 // var cors = require('koa-cors');
 var path = require('path');
 
-var bodyParser = require('koa-bodyparser')({
+var bodyParser = require('koa-body')({
   formidable: {uploadDir: './public/uploads'},
   multipart: true,
   urlencoded: true

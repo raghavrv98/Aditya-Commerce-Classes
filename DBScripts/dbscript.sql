@@ -120,3 +120,14 @@ CREATE TABLE parent(
     CONSTRAINT fk_stu_id_parent FOREIGN KEY(stu_id) REFERENCES student(id),
     CONSTRAINT pk_parent PRIMARY KEY(id)
 );
+
+CREATE TABLE timetable(
+    id int unsigned NOT NULL AUTO_INCREMENT,
+    creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    course_id int unsigned NOT NULL,
+    img varchar(63) NOT NULL,
+    CONSTRAINT fk_course_id_timetable FOREIGN KEY(course_id) REFERENCES course(id),
+    CONSTRAINT pk_timetable PRIMARY KEY(id)
+);
+
+UPDATE timestamp SET img="%s" WHERE course_id="%s";

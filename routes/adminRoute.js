@@ -10,7 +10,8 @@ router.get('/admin-result', adminCtrl.showResult);
 router.get('/admin-view-attendance', adminCtrl.viewAttendance);
 router.get('/admin-update-syllabus', adminCtrl.showSyllabusUpdateForm);
 router.post('/admin-update-syllabus', adminCtrl.updateSyllabus);
-router.get('/admin-update-timetable', adminCtrl.updateTimeTable);
+router.get('/admin-update-timetable', adminCtrl.showTimeTable);
+router.post('/admin-update-timetable', adminCtrl.updateTimeTable);
 router.post('/admin-register-student',adminCtrl.registerStudent)
 
 module.exports=router;
