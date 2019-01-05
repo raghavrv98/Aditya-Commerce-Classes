@@ -20,12 +20,12 @@ module.exports = {
 
     showFees: function* (next) {
         var stu_id = this.currentUser.id;
-        var query = util.format("SELECT * FROM fee_status WHERE fee_status.stu_id=%s;", stu_id)
+        var query = util.format('SELECT student.name as name, enrollment.course_id as cid , jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE student.active=1 AND student.id="%s" ORDER BY student.name;', stu_id)
         var result = yield databaseUtils.executeQuery(query)
-        result = result[0]
+        console.log(typeof result)
+        result = result
         delete result['id']
         delete result['creation_timestamp']
-        delete result['stu_id']
         yield this.render('student_fees_details', {
             'feesList': result,
             'currentUser': this.currentUser

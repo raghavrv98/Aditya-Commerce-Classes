@@ -75,7 +75,7 @@
               <a class="nav-link pagescroll" href="#contact">contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll"href="/logout">Logout</a>
+              <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -100,7 +100,7 @@
               <a class="nav-link pagescroll" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll"href="/logout">Logout</a>
+              <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
         </nav>
@@ -138,91 +138,118 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <br>
-                        <h4>Joining Date: <%= currentUser.joining_date.toLocaleString().slice(0,10) %> </h4><br>
-
-                        <table>
-                          <% for(var month in feesList) { %>
-                            <tr>
-                              <td> <%= month %> </td> <td> <%= feesList[month] %> </td>
-                            </tr>
-                          <% } %>
-                        </table>
-
-
-
-
+                        <h4>Joining Date:
+                          <%= currentUser.joining_date.toLocaleString().slice(0,10) %>
+                        </h4><br>
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Months</th>
+                              <th scope="col">Month</th>
                               <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var i=0;i<feesList.length;i++){ %>
+                            <% if(feesList[i].cid==1) { %>
                             <tr>
-                              <th scope="row">January</th>
-
+                              <th scope="row">Janurary</th>
+                              <% if(feesList[i].jan==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">February</th>
-
+                              <% if(feesList[i].feb==1) { %>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
                               <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">March</th>
-
+                              <% if(feesList[i].mar==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">April</th>
-
+                              <% if(feesList[i].apr==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">May</th>
-
+                              <% if(feesList[i].may==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">June</th>
-
+                              <% if(feesList[i].jun==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">July</th>
-
+                              <% if(feesList[i].jul==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">August</th>
-
+                              <% if(feesList[i].aug==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
-                              <th scope="row">september</th>
+                              <th scope="row">September</th>
+                              <% if(feesList[i].sep==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">October</th>
-
+                              <% if(feesList[i].oct==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">November</th>
-
+                              <% if(feesList[i].nov==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
                             <tr>
                               <th scope="row">December</th>
-
+                              <% if(feesList[i].decem==1) { %>
                               <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                              <% } else { %>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                              <% } %>
                             </tr>
-
+                            <% }} %>
                           </tbody>
                         </table>
-
-
                       </div>
                     </div>
                   </div><br>
@@ -230,216 +257,369 @@
                 <div class="tab-pane fade" id="business">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-lg-12">
-                        <br>
-                        <h4>Joining Date:</h4><br>
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">Months</th>
-                              <th scope="col">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">January</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">February</th>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">March</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">April</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">May</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">June</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">July</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">August</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">september</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">October</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">November</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">December</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-
-                          </tbody>
-                        </table>
-
-
-                      </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <br>
+                            <h4>Joining Date:
+                              <%= currentUser.joining_date.toLocaleString().slice(0,10) %>
+                            </h4><br>
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Month</th>
+                                  <th scope="col">Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% for(var i=0;i<feesList.length;i++){ %>
+                                <% if(feesList[i].cid==3) { %>
+                                <tr>
+                                  <th scope="row">Janurary</th>
+                                  <% if(feesList[i].jan==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">February</th>
+                                  <% if(feesList[i].feb==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">March</th>
+                                  <% if(feesList[i].mar==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">April</th>
+                                  <% if(feesList[i].apr==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">May</th>
+                                  <% if(feesList[i].may==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">June</th>
+                                  <% if(feesList[i].jun==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">July</th>
+                                  <% if(feesList[i].jul==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">August</th>
+                                  <% if(feesList[i].aug==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">September</th>
+                                  <% if(feesList[i].sep==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">October</th>
+                                  <% if(feesList[i].oct==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">November</th>
+                                  <% if(feesList[i].nov==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">December</th>
+                                  <% if(feesList[i].decem==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <% }} %>
+                              </tbody>
+                            </table>
+                          </div>
                     </div>
                   </div><br>
                 </div>
+
                 <div class="tab-pane fade" id="economics">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-lg-12">
-                        <br>
-                        <h4>Joining Date:</h4><br>
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">Months</th>
-                              <th scope="col">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">January</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">February</th>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">March</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">April</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">May</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">June</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">July</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">August</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">september</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">October</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">November</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">December</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-
-                          </tbody>
-                        </table>
-
-
-                      </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <br>
+                            <h4>Joining Date:
+                              <%= currentUser.joining_date.toLocaleString().slice(0,10) %>
+                            </h4><br>
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Month</th>
+                                  <th scope="col">Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% for(var i=0;i<feesList.length;i++){ %>
+                                <% if(feesList[i].cid==2) { %>
+                                <tr>
+                                  <th scope="row">Janurary</th>
+                                  <% if(feesList[i].jan==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">February</th>
+                                  <% if(feesList[i].feb==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">March</th>
+                                  <% if(feesList[i].mar==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">April</th>
+                                  <% if(feesList[i].apr==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">May</th>
+                                  <% if(feesList[i].may==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">June</th>
+                                  <% if(feesList[i].jun==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">July</th>
+                                  <% if(feesList[i].jul==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">August</th>
+                                  <% if(feesList[i].aug==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">September</th>
+                                  <% if(feesList[i].sep==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">October</th>
+                                  <% if(feesList[i].oct==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">November</th>
+                                  <% if(feesList[i].nov==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">December</th>
+                                  <% if(feesList[i].decem==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <% }} %>
+                              </tbody>
+                            </table>
+                          </div>
                     </div>
                   </div><br>
                 </div>
+
                 <div class="tab-pane fade" id="english">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-lg-12">
-                        <br>
-                        <h4>Joining Date:</h4><br>
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">Months</th>
-                              <th scope="col">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">January</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">February</th>
-                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">March</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">April</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">May</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">June</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">July</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">August</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">september</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">October</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">November</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">December</th>
-                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
-                            </tr>
-
-                          </tbody>
-                        </table>
-
-
-                      </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <br>
+                            <h4>Joining Date:
+                              <%= currentUser.joining_date.toLocaleString().slice(0,10) %>
+                            </h4><br>
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Month</th>
+                                  <th scope="col">Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% for(var i=0;i<feesList.length;i++){ %>
+                                <% if(feesList[i].cid==4) { %>
+                                <tr>
+                                  <th scope="row">Janurary</th>
+                                  <% if(feesList[i].jan==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">February</th>
+                                  <% if(feesList[i].feb==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">March</th>
+                                  <% if(feesList[i].mar==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">April</th>
+                                  <% if(feesList[i].apr==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">May</th>
+                                  <% if(feesList[i].may==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">June</th>
+                                  <% if(feesList[i].jun==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">July</th>
+                                  <% if(feesList[i].jul==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">August</th>
+                                  <% if(feesList[i].aug==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">September</th>
+                                  <% if(feesList[i].sep==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">October</th>
+                                  <% if(feesList[i].oct==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">November</th>
+                                  <% if(feesList[i].nov==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <tr>
+                                  <th scope="row">December</th>
+                                  <% if(feesList[i].decem==1) { %>
+                                  <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                                  <% } else { %>
+                                  <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                                  <% } %>
+                                </tr>
+                                <% }} %>
+                              </tbody>
+                            </table>
+                          </div>
                     </div>
                   </div><br>
                 </div>
+
               </div>
             </div>
           </div>
@@ -449,7 +629,7 @@
     </div>
   </section>
   <% } else { %>
-    <h1> Unauthorised acess.. </h1>
+  <h1> Unauthorised acess.. </h1>
   <% } %>
   <!-- Contact US -->
   <section id="contact" class="padding_top">
