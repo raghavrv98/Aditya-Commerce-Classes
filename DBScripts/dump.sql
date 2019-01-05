@@ -293,6 +293,31 @@ LOCK TABLES `test_result` WRITE;
 INSERT INTO `test_result` VALUES (1,'2018-12-31 16:08:57',1,1,95);
 /*!40000 ALTER TABLE `test_result` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `timetable`
+--
+
+DROP TABLE IF EXISTS `timetable`;
+CREATE TABLE `timetable` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `creation_timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `course_id` int(10) unsigned NOT NULL,
+  `img` varchar(63) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_course_id_timetable` (`course_id`),
+  CONSTRAINT `fk_course_id_timetable` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timetable`
+--
+
+LOCK TABLES `timetable` WRITE;
+/*!40000 ALTER TABLE `timetable` DISABLE KEYS */;
+INSERT INTO `timetable` VALUES (1,'2019-01-05 07:13:03',1,'upload_1d9cad1a092559d12d71c5e63560b36f'),(2,'2019-01-05 07:13:35',2,'upload_a4ba2215eafc9b26b94230a15bce40a6'),(3,'2019-01-05 07:13:24',3,'upload_e502ef976b3a556c8ae2bdc697dda55e'),(4,'2019-01-05 07:14:13',4,'upload_833fca44443a0f6daed81af73659e79f');
+/*!40000 ALTER TABLE `timetable` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -303,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-04 10:38:38
+-- Dump completed on 2019-01-05  7:31:28
