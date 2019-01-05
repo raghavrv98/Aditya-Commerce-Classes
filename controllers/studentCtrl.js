@@ -51,8 +51,12 @@ module.exports = {
     },
 
     showTimeTable: function* (next) {
-        yield this.render('student_timetable', {
-            'currentUser': this.currentUser
+        var query=util.format("SELECT course_id,img FROM timetable;")
+        var result=yield databaseUtils.executeQuery(query)
+        console.log(result)
+        yield this.render('student_timetable',{
+            'timetableList':result,
+            'currentUser':this.currentUser
         })
     },
 
