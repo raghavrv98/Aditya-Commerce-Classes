@@ -31,7 +31,7 @@ CREATE TABLE `attendance` (
   KEY `fk_stu_id_attendance` (`stu_id`),
   CONSTRAINT `fk_lecture_id_attendance` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`),
   CONSTRAINT `fk_stu_id_attendance` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -39,7 +39,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2018-12-31 16:04:51',1,1,0),(2,'2018-12-31 16:04:59',2,1,1),(3,'2019-01-03 08:01:39',3,1,1);
+INSERT INTO `attendance` VALUES (1,'2018-12-31 16:04:51',1,1,0),(2,'2018-12-31 16:04:59',2,1,1),(3,'2019-01-03 08:01:39',3,1,1),(4,'2019-01-05 17:09:59',4,4,1),(5,'2019-01-05 17:09:59',4,5,1),(6,'2019-01-05 17:13:37',5,5,1),(7,'2019-01-05 17:20:48',6,2,1),(8,'2019-01-05 17:20:48',6,1,1),(9,'2019-01-05 17:20:48',6,5,1),(10,'2019-01-05 17:21:31',7,2,1),(11,'2019-01-05 17:21:31',7,1,1),(12,'2019-01-05 17:21:31',7,5,1),(13,'2019-01-05 17:21:41',8,4,1),(14,'2019-01-05 17:21:41',8,1,1);
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `lecture` (
   PRIMARY KEY  (`id`),
   KEY `fk_course_id_lecture` (`course_id`),
   CONSTRAINT `fk_course_id_lecture` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lecture`
@@ -152,7 +152,7 @@ CREATE TABLE `lecture` (
 
 LOCK TABLES `lecture` WRITE;
 /*!40000 ALTER TABLE `lecture` DISABLE KEYS */;
-INSERT INTO `lecture` VALUES (1,'2018-12-31 16:03:13','2019-01-01',NULL,1),(2,'2018-12-31 16:03:35','2019-01-01',NULL,2),(3,'2019-01-03 08:01:01','2019-01-02',NULL,2);
+INSERT INTO `lecture` VALUES (1,'2018-12-31 16:03:13','2019-01-01',NULL,1),(2,'2018-12-31 16:03:35','2019-01-01',NULL,2),(3,'2019-01-03 08:01:01','2019-01-02',NULL,2),(4,'2019-01-05 17:09:59','2019-01-05',NULL,1),(5,'2019-01-05 17:13:37','2019-01-04',NULL,1),(6,'2019-01-05 17:20:48','2019-01-04',NULL,3),(7,'2019-01-05 17:21:31','2019-01-05',NULL,2),(8,'2019-01-05 17:21:41','2019-01-04',NULL,4);
 /*!40000 ALTER TABLE `lecture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-05 12:44:13
+-- Dump completed on 2019-01-05 17:26:18

@@ -14,9 +14,41 @@ module.exports = {
     },
 
     attendance:function*(next){
+        var query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var accStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        var ecoStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        var bsStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        var engStudentList=yield databaseUtils.executeQuery(query)
+
         yield this.render('teacher_attendance',{
-            'currentUser':this.currentUser
+            'currentUser':this.currentUser,
+            'accStudentList':accStudentList,
+            'ecoStudentList':ecoStudentList,
+            'bsStudentList':bsStudentList,
+            'engStudentList':engStudentList
         })
+    },
+
+    uploadAttendance:function*(next){
+        console.log(this.request.body)
+        var lectureDate=this.request.body.lectureDate
+        var courseId=this.request.body.courseId
+        var present=this.request.body.present
+        var query=util.format('INSERT INTO lecture (lecture_date, course_id) VALUES ("%s", "%s")', lectureDate, courseId)
+        var result=yield databaseUtils.executeQuery(query)
+        var lectureId=result.insertId
+        for(var i=0;i<present.length;i++){
+            query=util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+            result=yield databaseUtils.executeQuery(query)
+            console.log(result)
+        }
+        this.redirect('/admin-attendance')
     },
     
     viewAttendance:function*(next){
@@ -33,8 +65,24 @@ module.exports = {
     },
 
     showFeeStatus:function*(next){
+        var query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var accFees=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        var ecoFees=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        var bsFees=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        var engFees=yield databaseUtils.executeQuery(query)
+
         yield this.render('teacher_fee_status',{
-            'currentUser':this.currentUser
+            'currentUser':this.currentUser,
+            'accFees':accFees,
+            'ecoFees':ecoFees,
+            'bsFees':bsFees,
+            'engFees':engFees
         })
     },
 
