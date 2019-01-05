@@ -125,17 +125,25 @@ module.exports = {
         if(this.request.body.bs){
             query=util.format('insert into enrollment(stu_id,course_id)values("%s","1")',stu_id)
             result=yield databaseUtils.executeQuery(query)
+            query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
+            result=yield databaseUtils.executeQuery(query)
         }
         if(this.request.body.accounts){
             query=util.format('insert into enrollment(stu_id,course_id)values("%s","3")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+            query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
         if(this.request.body.economics){
             query=util.format('insert into enrollment(stu_id,course_id)values("%s","2")',stu_id)
             result=yield databaseUtils.executeQuery(query)
+            query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
+            result=yield databaseUtils.executeQuery(query)
         }
         if(this.request.body.english){
             query=util.format('insert into enrollment(stu_id,course_id)values("%s","4")',stu_id)
+            result=yield databaseUtils.executeQuery(query)
+            query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
         this.redirect('/admin')
