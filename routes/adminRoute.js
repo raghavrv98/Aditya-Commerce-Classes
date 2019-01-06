@@ -7,6 +7,7 @@ router.post('/admin-upload-attendance', adminCtrl.uploadAttendance);
 router.get('/admin-create-exam', adminCtrl.showNewExamForm);
 router.post('/admin-create-exam',adminCtrl.createNewExam)
 router.get('/admin-fee-status', adminCtrl.showFeeStatus);
+router.post('/admin-fee-status', adminCtrl.updateFeeStatus);
 router.get('/admin-result', adminCtrl.showUploadResultForm);
 router.post('/admin-result', adminCtrl.uploadResult);
 router.get('/deregister-student', adminCtrl.showDeregistrationForm);

@@ -111,16 +111,16 @@ module.exports = {
     },
 
     showFeeStatus:function*(next){
-        var query=util.format('SELECT student.id, student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var query=util.format('SELECT student.name, fee_status.id as fid, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
         var accFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.name, fee_status.id as fid, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
         var ecoFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.name, fee_status.id as fid, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
         var bsFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.name, fee_status.id as fid, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
         var engFees=yield databaseUtils.executeQuery(query)
 
         yield this.render('teacher_fee_status',{
@@ -130,6 +130,25 @@ module.exports = {
             'bsFees':bsFees,
             'engFees':engFees
         })
+    },
+
+    updateFeeStatus:function*(next){
+        var month=this.request.body.month
+        var fid=this.request.body.fid
+        var result=''
+        var query=''
+        if(typeof fid==typeof 'string'){
+            query=util.format('UPDATE fee_status SET %s=1 WHERE id="%s"',month,fid)
+            result=yield databaseUtils.executeQuery(query)
+            console.log("INSIDE IF",query,result)
+        }else{
+            for(var i=0;i<fid.length;i++){
+                query=util.format('UPDATE fee_status SET %s=1 WHERE id="%s"',month,fid[i])
+                result=yield databaseUtils.executeQuery(query)
+                console.log("INSIDE ELSE",query,result)
+            }
+        }
+        this.redirect('/admin-fee-status')
     },
 
     showUploadResultForm:function*(next){
