@@ -15,7 +15,7 @@ module.exports = {
         var query = util.format("select * from student where mobile=%s", mobile)
         var result = yield databaseUtils.executeQuery(query)
         var user = result[0]
-        if (user && password === user.password) {
+        if (user && password === user.password && user.active==1) {
             user["isAdmin"] = false
             sessionUtils.saveUserInSession(user, this.cookies)
             this.redirect('/student')

@@ -53,7 +53,7 @@
     </div>
   </div>
   <!--PreLoader Ends-->
-  <% if(currentUser && currentUser.isAdmin) { %>
+
   <!-- header -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg fixed-top gradient_bg">
@@ -117,120 +117,178 @@
     <!-- End side menu -->
   </header>
   <!-- header -->
-  <!-- Enquiry modal-->
-  <div class="container">
-
-    <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:#0683c9">
-            <h4 style="color:white">Registration Form</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"
-                aria-hidden="true"></i></button>
-          </div>
-          <div class="modal-body">
-            <br>
-            <form method="post" action="/admin-register-student">
-              <input type="text" name="studentname" class="form-control" placeholder="Student's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="text" name="fathername" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="text" name="phone" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="password" name="password" class="form-control" placeholder="Password" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="text" name="schoolname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="date" name="joiningdate" class="form-control" placeholder="joining Date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br>
-              <div class="form-check-inline" style="margin-left:10%;">
-                <input type="checkbox" name="accounts" class="form-check-input"><b>Accounts</b>&nbsp;
-                <input type="checkbox" name="bs" class="form-check-input"><b>Business</b>&nbsp;
-                <input type="checkbox" name="economics" class="form-check-input"><b>Economics</b>&nbsp;
-                <input type="checkbox" name="english" class="form-check-input"><b>English</b>&nbsp;
-              </div>
-              <br><br><textarea class="form-control" name="address" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;"
-                required data-error="Please enter your Address"></textarea>
-              <input type="submit" style="margin-left: 35%" id="login_btn" class="button btnprimary top50" style="background-color:#00bcd4"
-                name="" value="Submit">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section id="home" class="padding_top">
+  <section id="home" class="padding_top" style="color:black">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" style="margin-left: 13%" data-wow-delay="350ms">
-          <div class="row">
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a data-toggle="modal" href="#registration"><i class="fa fa-pencil" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Registration</h4>
-              </p></a>
+        <div class="col-lg-12">
+          <div class="panel with-nav-tabs panel-success">
+            <div class="panel-heading">
+              <ul class="nav nav-tabs">
+                <li><a href="#accounts" data-toggle="tab" class="btn btn-common">Accounts </a></li>
+                <li><a href="#business" data-toggle="tab" class="btn btn-common">Business </a></li>
+                <li><a href="#economics" data-toggle="tab" class="btn btn-common">Economics </a></li>
+                <li><a href="#english" data-toggle="tab" class="btn btn-common">English</a></li>
+              </ul>
             </div>
+            <h2 style="text-align:center">Attendance</h2><br>
+            <div class="panel-body">
+              <div class="tab-content">
+                <div class="tab-pane fade" id="accounts">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-lg-12">
 
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-attendance"><i class="fa fa-file-text-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Upload Attendance</h4>
-              </p></a>
-            </div>
+                        <form action="/deregister-student" method="POST">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Serial no.</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Deregister</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% for(var i=0;i<accStudentList.length;i++){ %>
+                            <tr>
+                              <th scope="row"><%=i+1%></th>
+                              <td><%=accStudentList[i].name%></td>
+                              <td><input type="checkbox" name="eid_sid" value="<%=accStudentList[i].eid%>_<%=accStudentList[i].sid%>"></td>
+                            </tr>
+                            <% } %>
+                          </tbody>
+                        </table>
+                        <input type="submit" value="Submit">
+                      </form>
 
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/deregister-student">
-                <i class="fa fa-user-times" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Deregister Student</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-create-exam"><i class="fa fa-file-text-fa fa-pencil-square-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Create new Exams</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-fee-status"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Fees Details</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-result"><i class="fa fa-bar-chart" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Result</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-update-syllabus"><i class="fa fa-files-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Syllabus</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-update-timetable"><i class="fa fa-calendar-check-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Time Table</h4>
-              </p></a>
+                      </div>
+                    </div>
+                  </div><br>
+                </div>
+                <div class="tab-pane fade" id="business">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <form method="post" action="/app/signin">
+                          Date:&nbsp;&nbsp;<input type="date" name="tarik">
+                          <input type="submit" class="btn btn-primary btn-xs" style="background-color:#00bcd4; border-color: #00bcd4"
+                            name="" value="Submit"><br><br>
+                        </form>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Serial no.</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Present</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>piyush</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>raghav</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>shailesh</td>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div><br>
+                </div>
+                <div class="tab-pane fade" id="economics">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <form method="post" action="/app/signin">
+                          Date:&nbsp;&nbsp;<input type="date" name="tarik">
+                          <input type="submit" class="btn btn-primary btn-xs" style="background-color:#00bcd4; border-color: #00bcd4"
+                            name="" value="Submit"><br><br>
+                        </form>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Serial no.</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Present</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>piyush</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>raghav</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>shailesh</td>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div><br>
+                </div>
+                <div class="tab-pane fade" id="english">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <form method="post" action="/app/signin">
+                          Date:&nbsp;&nbsp;<input type="date" name="tarik">
+                          <input type="submit" class="btn btn-primary btn-xs" style="background-color:#00bcd4; border-color: #00bcd4"
+                            name="" value="Submit"><br><br>
+                        </form>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Serial no.</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Present</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>piyush</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>raghav</td>
+                              <td><i class="fa fa-check" style="font-size:20px;color:green"></i></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>shailesh</td>
+                              <td><i class="fa fa-times" style="font-size:20px;color:red"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div><br>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
-  <% } else { %>
-  <h1 class="text-center"> Unauthorised Access </h1>
-  <% } %>
   <!-- Contact US -->
   <section id="contact" class="padding_top">
     <div class="container">

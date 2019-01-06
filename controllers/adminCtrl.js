@@ -51,10 +51,56 @@ module.exports = {
         this.redirect('/admin-attendance')
     },
     
-    viewAttendance:function*(next){
-        yield this.render('teacher_view_attendance',{
-            'currentUser':this.currentUser
+    showDeregistrationForm:function*(next){
+        var query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var accStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        var ecoStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        var bsStudentList=yield databaseUtils.executeQuery(query)
+
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        var engStudentList=yield databaseUtils.executeQuery(query)
+        yield this.render('teacher_deregister_student',{
+            'currentUser':this.currentUser,
+            'accStudentList':accStudentList,
+            'ecoStudentList':ecoStudentList,
+            'bsStudentList':bsStudentList,
+            'engStudentList':engStudentList
         })
+    },
+
+    deregisterStudent:function*(next){
+        var eid_sid=this.request.body.eid_sid
+        var query=''
+        var result=''
+        if(typeof eid_sid==typeof "strings"){
+            var eid=eid_sid.split('_')[0]
+            var sid=eid_sid.split('_')[1]
+            console.log(eid,"INSIDE IF---------",sid)
+            query=util.format('DELETE FROM enrollment WHERE id="%s";',eid)
+            result=yield databaseUtils.executeQuery(query)
+            console.log(query,result)
+            query=util.format('UPDATE student SET active="0" where id="%s";',sid)
+            result=yield databaseUtils.executeQuery(query)
+            console.log(query,result)
+        }else{
+            console.log(typeof eid_sid, eid_sid)
+            for(var i=0;i<eid_sid.length;i++){
+                var eid=eid_sid[i].split('_')[0]
+                var sid=eid_sid[i].split('_')[1]
+                console.log(eid,"INSIDE ELSE---------",sid)
+                query=util.format('DELETE FROM enrollment WHERE id="%s";',eid)
+                result=yield databaseUtils.executeQuery(query)
+                console.log(query,result)
+                query=util.format('UPDATE student SET active="0" where id="%s";',sid)
+                result=yield databaseUtils.executeQuery(query)
+                console.log(query,result)
+            }
+        }
+        this.redirect('/deregister-student')
     },
 
     showNewExamForm:function*(next){
@@ -65,16 +111,16 @@ module.exports = {
     },
 
     showFeeStatus:function*(next){
-        var query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var query=util.format('SELECT student.id, student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
         var accFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
         var ecoFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
         var bsFees=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id,  student.name, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov,decem FROM fee_status JOIN enrollment ON enrollment.id=fee_status.enrol_id JOIN student ON student.id=enrollment.stu_id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
         var engFees=yield databaseUtils.executeQuery(query)
 
         yield this.render('teacher_fee_status',{
@@ -171,13 +217,13 @@ module.exports = {
         console.log("RESULT",result)
         var stu_id=result.insertId;
         if(this.request.body.bs){
-            query=util.format('insert into enrollment(stu_id,course_id)values("%s","1")',stu_id)
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","3")',stu_id)
             result=yield databaseUtils.executeQuery(query)
             query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
         if(this.request.body.accounts){
-            query=util.format('insert into enrollment(stu_id,course_id)values("%s","3")',stu_id)
+            query=util.format('insert into enrollment(stu_id,course_id)values("%s","1")',stu_id)
             result=yield databaseUtils.executeQuery(query)
             query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
@@ -223,5 +269,7 @@ module.exports = {
         var result=yield databaseUtils.executeQuery(query)
         console.log(result);
         this.redirect('/admin-update-timetable')
-    }
+    },
+
+    
 }
