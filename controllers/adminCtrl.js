@@ -52,16 +52,16 @@ module.exports = {
     },
     
     showDeregistrationForm:function*(next){
-        var query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
+        var query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name, student.mobile FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
         var accStudentList=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name, student.mobile FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=2 AND student.active=1 ORDER BY student.name;')
         var ecoStudentList=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name, student.mobile FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=3 AND student.active=1 ORDER BY student.name;')
         var bsStudentList=yield databaseUtils.executeQuery(query)
 
-        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
+        query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name, student.mobile FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=4 AND student.active=1 ORDER BY student.name;')
         var engStudentList=yield databaseUtils.executeQuery(query)
         yield this.render('teacher_deregister_student',{
             'currentUser':this.currentUser,
