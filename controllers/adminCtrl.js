@@ -43,10 +43,16 @@ module.exports = {
         var query=util.format('INSERT INTO lecture (lecture_date, course_id) VALUES ("%s", "%s")', lectureDate, courseId)
         var result=yield databaseUtils.executeQuery(query)
         var lectureId=result.insertId
-        for(var i=0;i<present.length;i++){
-            query=util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+        if(typeof present==typeof 'string'){
+            query=util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present)
             result=yield databaseUtils.executeQuery(query)
             console.log(result)
+        }else{
+            for(var i=0;i<present.length;i++){
+                query=util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+                result=yield databaseUtils.executeQuery(query)
+                console.log(result)
+            }
         }
         this.redirect('/admin-attendance')
     },
@@ -83,9 +89,9 @@ module.exports = {
             query=util.format('DELETE FROM enrollment WHERE id="%s";',eid)
             result=yield databaseUtils.executeQuery(query)
             console.log(query,result)
-            query=util.format('UPDATE student SET active="0" where id="%s";',sid)
-            result=yield databaseUtils.executeQuery(query)
-            console.log(query,result)
+            // query=util.format('UPDATE student SET active="0" where id="%s";',sid)
+            // result=yield databaseUtils.executeQuery(query)
+            // console.log(query,result)
         }else{
             console.log(typeof eid_sid, eid_sid)
             for(var i=0;i<eid_sid.length;i++){
@@ -95,9 +101,9 @@ module.exports = {
                 query=util.format('DELETE FROM enrollment WHERE id="%s";',eid)
                 result=yield databaseUtils.executeQuery(query)
                 console.log(query,result)
-                query=util.format('UPDATE student SET active="0" where id="%s";',sid)
-                result=yield databaseUtils.executeQuery(query)
-                console.log(query,result)
+                // query=util.format('UPDATE student SET active="0" where id="%s";',sid)
+                // result=yield databaseUtils.executeQuery(query)
+                // console.log(query,result)
             }
         }
         this.redirect('/deregister-student')

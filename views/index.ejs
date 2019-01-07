@@ -85,36 +85,63 @@
       <!-- Modal -->
       <div class="container">    
                             
-            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-               <div class="modal-content">
-                               <div class="modal-header" style="background-color:#0683c9">
-                                    <h4 style="color:white">Login</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                 </div>
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+                           <div class="modal-header" style="background-color:#0683c9">
+                                <h4 style="color:white">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                             </div>
+                         
+                        <div class="modal-body,input-group input-group-lg">
+                           <br><br>
+                 
+                           <form method="post" action = "/login">
+                             <input type="text" name="userid" class="form-control" placeholder="User Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                             <br>
+                             <input type="password" name="password"  class="form-control" placeholder="Password" style="width:80%; margin-left:10%;border-color: #00bcd4; color:black" required><br>
+                             <a style="margin-left: 10%; color: #0683c9" href="#forgot" data-toggle="modal"  data-dismiss="modal">Forgot password?</a>
+                             <input type="submit" style="margin-left: 29%; border-radius:5%;" class="button btnprimary" style="background-color:#00bcd4" name="" value="Login">  
                              
-                            <div class="modal-body,input-group input-group-lg">
-                               <br><br>
-                     
-                               <form method="post" action = "/login">
-                                 <input type="text" name="userid" class="form-control" placeholder="User Id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required data-error="Please enter your User Id">
-                                 <br><br>
-                                 <input type="password" name="password"  class="form-control" placeholder="Password" style="width:80%; margin-left:10%;border-color: #00bcd4; color:black" required data-error="Please enter your Password">
-                                 <br><br>
-                                 <input type="submit" style="margin-left: 35%" id ="login_btn" class="button btnprimary top50" style="background-color:#00bcd4" name="" value="Login">  
-                                 
+                             <br><br>
+                     <br><br>
+                                             
+                    </form>
+                                      </div>
+          </div>
+       </div>
+     </div>
 
-                                 <br><br>
-                         <br><br>
-                                                 
-                        </form>
-                                          </div>
-              </div>
-           </div>
-         </div>
-    
-    </div>
+</div>
+<!-- forgot password-->
+<div class="container">    
+                        
+<div class="modal fade" id="forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+                   <div class="modal-header" style="background-color:#0683c9">
+                        <h4 style="color:white">Forgot password</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                     </div>
+                 
+                <div class="modal-body,input-group input-group-lg">
+                   <br><br>
+<h5><p style="margin-left: 10%; color: black">Please enter your e-mail address. You will receive an e-mail along with your password which can be used to open your account.</p></h5>
+<br/>          
+<form method="post" action = "/forgot">
+  <input type="text" name="email_id" class="form-control" placeholder="Email" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
+  <br><br>
+                    
+  <center><input type="submit" style=" border-radius:5%;" class="button btnprimary" style="background-color:#0683c9" name="" value="Send"></center>  
+  <br><br>
 
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div> 
     <!-- Enquiry modal-->
     <div class="container">    
                             

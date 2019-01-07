@@ -33,6 +33,50 @@ module.exports = {
         }
 
     },
+    changePassword: function* (next) {
+        var oldp = this.request.body.oldp
+        var newp = this.request.body.newp
+        console.log(oldp);
+        console.log(newp);
+        
+        var query = util.format('select password from super_user where password="%s"',oldp)
+        var result = yield databaseUtils.executeQuery(query)
+        var user = result[0]
+        console.log(user);
+
+        if (user && oldp === user.password) {
+            console.log(1111111111);
+            user["isAdmin"] = true
+            console.log("admin");
+            
+            var queryp = util.format('update super_user set password="%s" where password="%s"',newp,oldp)
+            console.log(queryp);
+            var resultp = yield databaseUtils.executeQuery(queryp)
+            console.log(resultp);
+            sessionUtils.saveUserInSession(user, this.cookies)
+            console.log("yahan par aagya hai");
+            
+            this.redirect('/admin')
+        } else {
+            query = util.format('select password from student where password="%s"',oldp)
+            result = yield databaseUtils.executeQuery(query)
+            user = result[0]
+            console.log(user);
+        
+            if (user && oldp === user.password) {
+                user["isAdmin"] = false
+                console.log("student");
+                
+                var queryp = util.format('update student set password="%s" where password="%s"',newp,oldp)
+                var resultp = yield databaseUtils.executeQuery(queryp)
+                sessionUtils.saveUserInSession(user, this.cookies)
+                this.redirect('/student')
+            } else {
+                this.redirect('/')
+            }
+        }
+
+    },
 
     logout: function*(next){
         var sessionId = this.cookies.get("SESSION_ID");

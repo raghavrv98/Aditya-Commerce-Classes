@@ -75,6 +75,9 @@
               <a class="nav-link pagescroll" href="#contact">contact</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link page-scroll" data-toggle="modal" href="#changepassword">Change Password</a>
+              </li>
+            <li class="nav-item">
               <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
@@ -100,6 +103,9 @@
               <a class="nav-link pagescroll" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link page-scroll" data-toggle="modal" href="#changepassword">Change Password</a>
+              </li>
+            <li class="nav-item">
               <a class="nav-link page-scroll" href="/logout">Logout</a>
             </li>
           </ul>
@@ -117,6 +123,41 @@
     <!-- End side menu -->
   </header>
   <!-- header -->
+     <!-- Modal -->
+ <div class="container">    
+                            
+  <div class="modal fade" id="changepassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+     <div class="modal-content">
+                     <div class="modal-header" style="background-color:#0683c9">
+                          <h4 style="color:white">Change Password</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                       </div>
+                   
+                  <div class="modal-body,input-group input-group-lg">
+                     <br><br>
+           
+                     <form method="post" action = "/change-password">
+                       <input type="password" name="oldp" class="form-control" id="password" data-toggle="password" placeholder="Enter Old Password" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
+                       <br>
+                       <script type="text/javascript">
+                        $("#password").password('toggle');
+                      </script>
+                      
+                       <input type="password" name="newp"  class="form-control" placeholder="Enter New Password" style="width:80%; margin-left:10%;border-color: #00bcd4; color:black" required><br>
+                       <center><input type="submit" style="border-radius:5%;" class="button btnprimary" style="background-color:#00bcd4" name="" value="change"></center>
+                       
+                       <br><br>
+               <br><br>
+                                       
+              </form>
+                                </div>
+    </div>
+ </div>
+</div>
+
+</div>
+
   <!-- Enquiry modal-->
   <div class="container">
 
