@@ -2,7 +2,6 @@ var util = require('util')
 var databaseUtils = require('./../utils/databaseUtils')
 var sessionUtils = require('./../utils/sessionUtils')
 var mailUtils=require('./../utils/mailUtils')
-var enquirymailUtils=require('./../utils/enquirymailUtils')
 module.exports = {
     showHome: function* (next) {
         yield this.render('index', {
@@ -103,15 +102,12 @@ module.exports = {
     },
     
     enquiryMail:function*(next){
-        var firstname=this.request.body.firstname
-        var lastname=this.request.body.lastname
+        var name=this.request.body.name
         var email=this.request.body.email
-        var mobile=this.request.body.mobile
-        var message=this.request.body.message
-
-            enquirymailUtils.sendMail(email,'Enquiry for classes',"My name is :"+firstname+" "+lastname+"\n"+"My mobile no. is :"+mobile+"\n"+message,)
-        
-        yield this.render('/')
+        var mobile=this.request.body.phone
+        var message=this.request.body.message + "\n Email:" + email + "\nMobile:" + mobile + "\nName:" + name
+        mailUtils.sendMail('agrawalraghav669@gmail.com',"Enquiry Form",message)
+        this.redirect('/')
     }    
     
 }

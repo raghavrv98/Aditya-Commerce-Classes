@@ -1,5 +1,6 @@
 var util=require('util')
 var databaseUtils=require('./../utils/databaseUtils')
+var mailUtils=require('./../utils/mailUtils')
 
 module.exports = {
     showDashboard: function* (next) {
@@ -57,7 +58,7 @@ module.exports = {
         this.redirect('/admin-attendance')
     },
     
-    viewAttendance:function*(next){
+    viewAttendanceForm:function*(next){
         yield this.render('teacher_view_attendance',{
             'currentUser':this.currentUser
         })
@@ -272,6 +273,7 @@ module.exports = {
             query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
+        mailUtils.sendMail(email,"Confirmation of applicant ","Welcome to Aditya Commerce Classes, You are now registered student")
         this.redirect('/admin')
     },
 
