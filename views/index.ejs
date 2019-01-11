@@ -128,10 +128,11 @@
                    <br><br>
 <h5><p style="margin-left: 10%; color: black">Please enter your e-mail address. You will receive an e-mail along with your password which can be used to open your account.</p></h5>
 <br/>          
-<form method="post" action = "/forgot">
-  <input type="text" name="email_id" class="form-control" placeholder="Email" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
+<form method="post" action = "/forgot-password">
+  <input type="text" name="email" class="form-control" placeholder="Email" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
   <br><br>
-                    
+  <input type="phone" name="mobile" class="form-control" placeholder="Phone number" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
+  <br><br>                  
   <center><input type="submit" style=" border-radius:5%;" class="button btnprimary" style="background-color:#0683c9" name="" value="Send"></center>  
   <br><br>
 
@@ -730,24 +731,24 @@
             </div>
          </div>
          <div class="col-md-6 col-sm-12 margin_bottom">
-            <form class="getin_form wow fadeInUp" data-wow-delay="400ms" onsubmit="return false;">
+            <form class="getin_form wow fadeInUp" action="/enquiry-mail" method="POST" data-wow-delay="400ms">
                <div class="row">
 
                   <div class="col-sm-12" id="result"></div>
 
                   <div class="col-md-6 col-sm-6">
                      <div class="form-group bottom35">
-                        <input class="form-control" type="text" placeholder="First Name:" required id="first_name" name="first_name">
+                        <input class="form-control" type="text" placeholder="First Name:" required name="firstname">
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
                      <div class="form-group bottom35">
-                        <input class="form-control" type="text" placeholder="Last Name:" required id="last_name" name="last_name">
+                        <input class="form-control" type="text" placeholder="Last Name:" required name="lastname">
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
                      <div class="form-group bottom35">
-                        <input class="form-control" type="email" placeholder="Email:" required id="email" name="email">
+                        <input class="form-control" type="email" placeholder="Email:" required name="email">
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6">
@@ -761,7 +762,7 @@
                      </div>
                   </div>
                   <div class="col-sm-12">
-                     <button type="submit" class="button btnprimary" id="submit_btn">submit request</button>
+                     <button type="submit" class="button btnprimary">submit request</button>
                   </div>
                </div>
             </form>

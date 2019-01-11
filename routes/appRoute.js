@@ -6,6 +6,8 @@ router.get('/', homeCtrl.showHome)
 router.post('/login',homeCtrl.login)
 router.get('/logout',homeCtrl.logout)
 router.post('/change-password',homeCtrl.changePassword)
+router.post('/forgot-password',homeCtrl.forgotPassword)
+router.post('/enquiry-mail',homeCtrl.enquiryMail)
 
 router.get('/student',studentCtrl.showDashboard)
 router.get('/student-attendance',studentCtrl.showAttendance)

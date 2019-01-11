@@ -1,11 +1,11 @@
 module.exports = {
     redisConfig: {
-        host: '13.126.134.2',
+        host: '127.0.0.1',
         port: 6379
     },
     databaseConnection: {
         connectionLimit: 100,
-        host: '13.126.134.2',
+        host: '127.0.0.1',
         user: 'root',
         password: 'root',
         database: 'aditya2'

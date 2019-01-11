@@ -1,7 +1,8 @@
 var util = require('util')
 var databaseUtils = require('./../utils/databaseUtils')
 var sessionUtils = require('./../utils/sessionUtils')
-
+var mailUtils=require('./../utils/mailUtils')
+var enquirymailUtils=require('./../utils/enquirymailUtils')
 module.exports = {
     showHome: function* (next) {
         yield this.render('index', {
@@ -85,5 +86,32 @@ module.exports = {
 		}
         this.cookies.set("SESSION_ID", '', { expires: new Date(1), path: '/' });
         this.redirect('/')
-    }
+    },
+    forgotPassword:function*(next){
+        var userEmail=this.request.body.email
+        var userMobile=this.request.body.mobile
+        var query=util.format('select email_id,mobile,password from student where email_id="%s"',userEmail)
+        var result=yield databaseUtils.executeQuery(query)
+        var isMatch=false;
+        if(result[0].email_id==userEmail && result[0].mobile==userMobile){
+            mailUtils.sendMail(userEmail,'Password@Aditya Classes',"Your password is: "+result[0].password,'text')
+            isMatch=true
+        }
+        yield this.render('forgot_password',{
+            'isMatch':isMatch
+        })
+    },
+    
+    enquiryMail:function*(next){
+        var firstname=this.request.body.firstname
+        var lastname=this.request.body.lastname
+        var email=this.request.body.email
+        var mobile=this.request.body.mobile
+        var message=this.request.body.message
+
+            enquirymailUtils.sendMail(email,'Enquiry for classes',"My name is :"+firstname+" "+lastname+"\n"+"My mobile no. is :"+mobile+"\n"+message,)
+        
+        yield this.render('/')
+    }    
+    
 }

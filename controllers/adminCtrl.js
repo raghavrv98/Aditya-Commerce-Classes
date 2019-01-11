@@ -57,6 +57,12 @@ module.exports = {
         this.redirect('/admin-attendance')
     },
     
+    viewAttendance:function*(next){
+        yield this.render('teacher_view_attendance',{
+            'currentUser':this.currentUser
+        })
+    },
+    
     showDeregistrationForm:function*(next){
         var query=util.format('SELECT student.id as sid, enrollment.id as eid, student.name, student.mobile FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
         var accStudentList=yield databaseUtils.executeQuery(query)
@@ -231,12 +237,13 @@ module.exports = {
         var studentname=this.request.body.studentname
         var fathername=this.request.body.fathername
         var phone=this.request.body.phone
+        var email_id=this.request.body.email_id
         var school=this.request.body.phone
         var joiningdate=this.request.body.joiningdate
         var address=this.request.body.address
         var password=this.request.body.password
 
-        var query=util.format('INSERT INTO student(name,mobile,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","1");',studentname,phone,password,address,joiningdate,school,fathername);
+        var query=util.format('INSERT INTO student(name,mobile,email_id,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","%s","1");',studentname,phone,email_id,password,address,joiningdate,school,fathername);
         console.log("query",query)
         var result=yield databaseUtils.executeQuery(query)
         console.log("RESULT",result)
@@ -270,9 +277,10 @@ module.exports = {
 
     createNewExam:function*(next){
         console.log(this.request.body)
-        var query=util.format('INSERT INTO test (test_date, course_id, max_marks) VALUES ("%s","%s","%s");',this.request.body.testDate, this.request.body.courseId, this.request.body.maxMarks)
+        var query=util.format('INSERT INTO test (test_date, batch_time, test_time, course_id, max_marks) VALUES ("%s","%s","%s","%s","%s");',this.request.body.testDate, this.request.body.batchtime, this.request.body.testtime, this.request.body.courseId, this.request.body.maxMarks)
         var result=yield databaseUtils.executeQuery(query)
         console.log(result)
+        console.log(111111111)
         this.redirect('/admin-create-exam')
     },
 

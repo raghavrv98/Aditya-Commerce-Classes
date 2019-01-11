@@ -12,7 +12,7 @@
   "dependencies": {
     "co": "4.6.0",
     "debug": "2.6.3",
-    "ejs": "2.3.3",
+    "ejs": "^2.3.3",
     "koa": "1.4.0",
     "koa-body": "1.4.0",
     "koa-bodyparser": "2.5.0",
@@ -23,6 +23,7 @@
     "koa-static": "1.5.2",
     "koa-views": "3.1.0",
     "mysql": "2.15.0",
+    "nodemailer": "^5.1.1",
     "redis": "2.8.0",
     "thunkify": "2.1.2",
     "uuid": "3.3.2"
