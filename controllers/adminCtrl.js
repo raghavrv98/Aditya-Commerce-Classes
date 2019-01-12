@@ -322,7 +322,7 @@ module.exports = {
 
     updateTimeTable:function*(next){
         var courseId=this.request.body.fields.courseId
-        var img=(this.request.body.files.timetable.path).split('\\')[2]
+        var img=(this.request.body.files.timetable.path).split('/')[2]
         var query=util.format('UPDATE timetable SET img="%s" WHERE course_id="%s";',img,courseId);
         var result=yield databaseUtils.executeQuery(query)
         console.log(result);
