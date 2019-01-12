@@ -4,9 +4,15 @@ var sessionUtils = require('./../utils/sessionUtils')
 var mailUtils=require('./../utils/mailUtils')
 module.exports = {
     showHome: function* (next) {
-        yield this.render('index', {
-            'currentUser':this.currentUser
-        })
+        if(!this.currentUser){
+            yield this.render('index', {
+                'currentUser':this.currentUser
+            })
+        }else if(this.currentUser.isAdmin){
+            this.redirect('/admin')
+        }else{
+            this.redirect('student')
+        }
     },
 
     login: function* (next) {

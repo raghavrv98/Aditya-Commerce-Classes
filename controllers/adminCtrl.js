@@ -59,9 +59,32 @@ module.exports = {
     },
     
     viewAttendanceForm:function*(next){
+        var query=util.format('select id,lecture_date from lecture where course_id=1 order by lecture_date desc;')
+        var accLecture=yield databaseUtils.executeQuery(query)
+
+        query=util.format('select id,lecture_date from lecture where course_id=2 order by lecture_date desc;')
+        var ecoLecture=yield databaseUtils.executeQuery(query)
+
+        query=util.format('select id,lecture_date from lecture where course_id=3 order by lecture_date desc;')
+        var bsLecture=yield databaseUtils.executeQuery(query)
+
+        query=util.format('select id,lecture_date from lecture where course_id=4 order by lecture_date desc;')
+        var engLecture=yield databaseUtils.executeQuery(query)
         yield this.render('teacher_view_attendance',{
-            'currentUser':this.currentUser
+            'currentUser':this.currentUser,
+            'accLecture':accLecture,
+            'ecoLecture':ecoLecture,
+            'bsLecture':bsLecture,
+            'engLecture':engLecture
         })
+    },
+
+    viewAttendanceByLectureId:function*(next){
+        console.log('RECEIVED AJAX REQUEST')
+        var lectureId=this.params.lid
+        var query=util.format('select student.id as sid, student.name from student join attendance on attendance.stu_id=student.id where attendance.lecture_id="%s" order by name;',lectureId)
+        var result=yield databaseUtils.executeQuery(query)
+        this.body=result
     },
     
     showDeregistrationForm:function*(next){

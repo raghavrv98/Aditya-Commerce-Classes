@@ -5,6 +5,7 @@ router.get('/admin', adminCtrl.showDashboard);
 router.get('/admin-attendance', adminCtrl.attendance);
 router.post('/admin-upload-attendance', adminCtrl.uploadAttendance);
 router.get('/admin-view-attendance', adminCtrl.viewAttendanceForm);
+router.get('/admin-view-attendance/:lid', adminCtrl.viewAttendanceByLectureId);
 router.get('/admin-create-exam', adminCtrl.showNewExamForm);
 router.post('/admin-create-exam',adminCtrl.createNewExam)
 router.get('/admin-fee-status', adminCtrl.showFeeStatus);
