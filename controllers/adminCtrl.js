@@ -299,7 +299,7 @@ module.exports = {
             query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
-        mailUtils.sendMail(email,"Confirmation of applicant ","Welcome to Aditya Commerce Classes, You are now registered student")
+        mailUtils.sendMail(email_id,"Confirmation of applicant ","Welcome to Aditya Commerce Classes, You are now registered student")
         this.redirect('/admin')
     },
 
