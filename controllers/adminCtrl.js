@@ -37,13 +37,16 @@ module.exports = {
     },
 
     uploadAttendance:function*(next){
-        console.log(this.request.body)
+        // console.log(this.request.body)
         var lectureDate=this.request.body.lectureDate
         var courseId=this.request.body.courseId
         var present=this.request.body.present
+        console.log(present);
+        
         var query=util.format('INSERT INTO lecture (lecture_date, course_id) VALUES ("%s", "%s")', lectureDate, courseId)
         var result=yield databaseUtils.executeQuery(query)
         var lectureId=result.insertId
+        
         if(typeof present==typeof 'string'){
             query=util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present)
             result=yield databaseUtils.executeQuery(query)
@@ -296,7 +299,7 @@ module.exports = {
             query=util.format('insert into fee_status(enrol_id)values("%s")',result.insertId)
             result=yield databaseUtils.executeQuery(query)
         }
-        mailUtils.sendMail(email,"Confirmation of applicant ","Welcome to Aditya Commerce Classes, You are now registered student")
+        mailUtils.sendMail(email_id,"Confirmation of applicant ","Welcome to Aditya Commerce Classes, You are now registered student")
         this.redirect('/admin')
     },
 
