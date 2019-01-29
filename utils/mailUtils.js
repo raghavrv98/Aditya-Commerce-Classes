@@ -5,14 +5,14 @@ module.exports={
     var transporter=nodemailer.createTransport({
         service:'gmail',
         auth:{
-            user:'agrawalraghav669@gmail.com',
-            pass:'8791834907'
+            user:'adityacommerceclasses@gmail.com',
+            pass:'adityaayushijiya'
         }
     });
 
     if(msgType==='html'){
         var mailOptions={
-            from:'agrawalraghav669@gla.ac.in',
+            from:'adityacommerceclasses@gmail.com',
             to:receiver,
             subject:subject,
             html:msg
@@ -20,7 +20,7 @@ module.exports={
     }
     else{
         var mailOptions={
-            from:'agrawalraghav669@gla.ac.in',
+            from:'adityacommerceclasses@gmail.com',
             to:receiver,
             subject:subject,
             text:msg
