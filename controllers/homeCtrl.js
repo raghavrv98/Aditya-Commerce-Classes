@@ -112,7 +112,7 @@ module.exports = {
         var email=this.request.body.email
         var mobile=this.request.body.phone
         var message=this.request.body.message + "\n Email:" + email + "\nMobile:" + mobile + "\nName:" + name
-        mailUtils.sendMail('agrawalraghav669@gmail.com',"Enquiry Form",message)
+        mailUtils.sendMail('adityacommerceclasses@gmail.com',"Enquiry Form",message)
         this.redirect('/')
     }    
     
