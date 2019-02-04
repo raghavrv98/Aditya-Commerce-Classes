@@ -270,7 +270,7 @@ module.exports = {
         var address=this.request.body.address
         var password=this.request.body.password
 
-        var query=util.format('INSERT INTO student(name,mobile,email_id,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","%s","1");',studentname,phone,email_id,password,address,joiningdate,school,fathername);
+        var query=util.format('INSERT INTO student(name,mobile,email,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","%s","1");',studentname,phone,email_id,password,address,joiningdate,school,fathername);
         console.log("query",query)
         var result=yield databaseUtils.executeQuery(query)
         console.log("RESULT",result)
@@ -305,10 +305,10 @@ module.exports = {
 
     createNewExam:function*(next){
         console.log(this.request.body)
-        var query=util.format('INSERT INTO test (test_date, batch_time, test_time, course_id, max_marks) VALUES ("%s","%s","%s","%s","%s");',this.request.body.testDate, this.request.body.batchtime, this.request.body.testtime, this.request.body.courseId, this.request.body.maxMarks)
+        var query=util.format('INSERT INTO test (test_date, batch, test_time, course_id, max_marks) VALUES ("%s","%s","%s","%s","%s");',this.request.body.testDate, this.request.body.batchtime, this.request.body.testtime, this.request.body.courseId, this.request.body.maxMarks)
+        console.log(query)
         var result=yield databaseUtils.executeQuery(query)
         console.log(result)
-        console.log(111111111)
         this.redirect('/admin-create-exam')
     },
 
