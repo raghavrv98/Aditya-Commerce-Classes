@@ -28,6 +28,16 @@
     }
 
 </style>
+
+<style>[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}</style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
@@ -153,7 +163,7 @@
 
 </div>
 
-  <!-- Enquiry modal-->
+  <!-- registration modal-->
   <div class="container">
 
     <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -171,7 +181,7 @@
                 required>
               <br><input type="text" name="fathername" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
                 required>
-              <br><input type="tel" name="phone" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
+              <br><input type="tel" name="phone" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
                 required>
                 <br><input type="email" name="email_id" class="form-control" placeholder="Email-id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
                 required>
@@ -179,14 +189,14 @@
                 required>
               <br><input type="text" name="schoolname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
                 required>
-              <br><input type="date" name="joiningdate" class="form-control textbox-n" onfocus="(this.type='date')"  id="date" placeholder="Joining Date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
+              <br><input type="date" name="joiningdate" class="form-control" placeholder="Joining Date :" id="date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
                 required>
               <br>
               <div class="form-check-inline" style="margin-left:10%;">
-                <input type="checkbox" name="accounts" class="form-check-input"><b>Accounts</b>&nbsp;
-                <input type="checkbox" name="bs" class="form-check-input"><b>Business</b>&nbsp;
-                <input type="checkbox" name="economics" class="form-check-input"><b>Economics</b>&nbsp;
-                <input type="checkbox" name="english" class="form-check-input"><b>English</b>&nbsp;
+                <input type="checkbox" name="accounts" class="form-check-input" checked><b>Accounts</b>&nbsp;
+                <input type="checkbox" name="bs" class="form-check-input" checked><b>Business</b>&nbsp;
+                <input type="checkbox" name="economics" class="form-check-input" checked><b>Economics</b>&nbsp;
+                <input type="checkbox" name="english" class="form-check-input" checked><b>English</b>&nbsp;
               </div>
               <br><br><textarea class="form-control" name="address" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;"
                 required data-error="Please enter your Address"></textarea>

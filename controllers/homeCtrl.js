@@ -11,7 +11,7 @@ module.exports = {
         }else if(this.currentUser.isAdmin){
             this.redirect('/admin')
         }else{
-            this.redirect('student')
+            this.redirect('/student')
         }
     },
 
@@ -95,10 +95,10 @@ module.exports = {
     forgotPassword:function*(next){
         var userEmail=this.request.body.email
         var userMobile=this.request.body.mobile
-        var query=util.format('select email_id,mobile,password from student where email_id="%s"',userEmail)
+        var query=util.format('select email,mobile,password from student where email="%s"',userEmail)
         var result=yield databaseUtils.executeQuery(query)
         var isMatch=false;
-        if(result[0].email_id==userEmail && result[0].mobile==userMobile){
+        if(result[0].email==userEmail && result[0].mobile==userMobile){
             mailUtils.sendMail(userEmail,'Password@Aditya Classes',"Your password is: "+result[0].password,'text')
             isMatch=true
         }

@@ -134,7 +134,7 @@
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <form method="post" action="/admin-upload-attendance">
                           <input type="text" name="courseId" value="1" hidden>
-                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate"><br><br>
+                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate" required ><br><br>
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -155,7 +155,7 @@
                                 <td>
                                   <div class="checkbox-inline">
                                     <label class="checkbox-inline">
-                                      <input type="checkbox" name="present" style="width: 20px; height:20px;"
+                                      <input type="checkbox" name="present" value="<%=accStudentList[i].id%>" style="width: 20px; height:20px;"
                                         checked>
                                     </label>
                                   </div>
@@ -177,7 +177,7 @@
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <form method="post" action="/admin-upload-attendance">
                           <input type="text" name="courseId" value="3" hidden>
-                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate"><br><br>
+                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate" required><br><br>
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -219,7 +219,7 @@
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <form method="post" action="/admin-upload-attendance">
                           <input type="text" name="courseId" value="2" hidden>
-                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate"><br><br>
+                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate" required><br><br>
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -262,7 +262,7 @@
                       <div class="col-xs-12 col-sm-12 col-lg-12">
                         <form method="post" action="/admin-upload-attendance">
                           <input type="text" name="courseId" value="4" hidden>
-                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate"><br><br>
+                          Date:&nbsp;&nbsp;<input type="date" name="lectureDate" required><br><br>
                           <table class="table table-hover">
                             <thead>
                               <tr>

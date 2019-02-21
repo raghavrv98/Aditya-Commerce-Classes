@@ -128,18 +128,18 @@
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td><input type="date" name="testDate"></td>
-                <td><input type="time" name="batchtime"></td>
-                <td><input type="time" name="testtime"></td>
+                <td><input type="date" name="testDate" Required></td>
+                <td><input type="time" name="batchtime" Required></td>
+                <td><input type="time" name="testtime" Required></td>
                 <td>
                   <select name="courseId" class="custom-select" style="width:250px;">
-                    <option selected>Subjects</option>
-                    <option value="1">Accounts</option>
-                    <option value="3">Business Studies</option>
-                    <option value="2">Economics</option>
-                    <option value="4">English</option>
+                    <option >Subjects</option>
+                    <option value="1" selected>Accounts </option>
+                    <option value="3">Business Studies </option>
+                    <option value="2">Economics </option>
+                    <option value="4">English </option>
                   </select></td>
-                  <td><input type="number" name="maxMarks"></td>
+                  <td><input type="number" name="maxMarks" min="0" max="100" required></td>
             </tr>
             </tbody>
           </table>
