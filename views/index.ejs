@@ -152,9 +152,9 @@
 <h5><p style="margin-left: 10%; color: black">Please enter your e-mail address. You will receive an e-mail along with your password which can be used to open your account.</p></h5>
 <br/>          
 <form method="post" action = "/forgot-password">
-  <input type="text" name="email" class="form-control" placeholder="Email" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
+  <input type="email" name="email" class="form-control" placeholder="Email" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
   <br><br>
-  <input type="phone" name="mobile" class="form-control" placeholder="Phone number" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
+  <input type="phone" name="mobile" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" placeholder="Phone number" style="width:80%; margin-left:10%"  aria-describedby="sizing-addon1"  required>
   <br><br>                  
   <center><input type="submit" style=" border-radius:5%;" class="button btnprimary" style="background-color:#0683c9" name="" value="Send"></center>  
   <br><br>
