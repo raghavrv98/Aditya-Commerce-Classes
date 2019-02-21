@@ -8,8 +8,7 @@ module.exports = {
             yield this.render('teacher_dashboard', {
                 'currentUser': this.currentUser
             });
-        }
-        else {
+        } else {
             this.redirect('/')
         }
     },
@@ -37,26 +36,44 @@ module.exports = {
     },
 
     uploadAttendance: function* (next) {
-        // console.log(this.request.body)
         var lectureDate = this.request.body.lectureDate
         var courseId = this.request.body.courseId
         var present = this.request.body.present
-        // console.log('PRESENT=>', present )
-        // console.log('COURSE ID=>',courseId,'LECTURE DATE=>',lectureDate);
+        var query = '';
+        var result = '';
+
         if (present) {
-            var query = util.format('INSERT INTO lecture (lecture_date, course_id) VALUES ("%s", "%s")', lectureDate, courseId)
-            var result = yield databaseUtils.executeQuery(query)
-            var lectureId = result.insertId
-            // console.log('LECTURE ID => ', lectureId)
-            if (typeof present == typeof 'string') {
-                query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present)
+            query = util.format('SELECT id as lectureId, course_id, lecture_date FROM lecture WHERE course_id="%s" and lecture_date="%s"', courseId, lectureDate)
+            result = yield databaseUtils.executeQuery(query)
+            if (result.length != 0) {
+                var lectureId = result[0].lectureId
+                query = util.format('DELETE FROM attendance WHERE lecture_id="%s";', lectureId)
                 result = yield databaseUtils.executeQuery(query)
-                // console.log(result)
-            } else {
-                for (var i = 0; i < present.length; i++) {
-                    query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+                if (typeof present == typeof 'string') {
+                    query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present)
                     result = yield databaseUtils.executeQuery(query)
                     // console.log(result)
+                } else {
+                    for (var i = 0; i < present.length; i++) {
+                        query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+                        result = yield databaseUtils.executeQuery(query)
+                        // console.log(result)
+                    }
+                }
+            } else {
+                query = util.format('INSERT INTO lecture (lecture_date, course_id) VALUES ("%s", "%s")', lectureDate, courseId)
+                result = yield databaseUtils.executeQuery(query)
+                var lectureId = result.insertId
+                if (typeof present == typeof 'string') {
+                    query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present)
+                    result = yield databaseUtils.executeQuery(query)
+                    // console.log(result)
+                } else {
+                    for (var i = 0; i < present.length; i++) {
+                        query = util.format('INSERT INTO attendance (lecture_id, stu_id, present) VALUES ("%s", "%s", "1")', lectureId, present[i])
+                        result = yield databaseUtils.executeQuery(query)
+                        // console.log(result)
+                    }
                 }
             }
             this.redirect('/admin-attendance')
@@ -284,9 +301,11 @@ module.exports = {
 
         var query = util.format('SELECT * from student WHERE mobile="%s";', phone)
         var result = yield databaseUtils.executeQuery(query)
-        console.log('RESULT.MOBILE KE UPAR',result)
-        if (result.length!=0) {
-            yield this.render('/errorMsg', { msg: 'This mobile number already exists' })
+        console.log('RESULT.MOBILE KE UPAR', result)
+        if (result.length != 0) {
+            yield this.render('/errorMsg', {
+                msg: 'This mobile number already exists'
+            })
         } else {
             query = util.format('INSERT INTO student(name,mobile,email,password,address,joining_date,school,parent,active)VALUES ("%s","%s","%s","%s","%s","%s","%s","%s","1");', studentname, phone, email_id, password, address, joiningdate, school, fathername);
             console.log("query", query)
