@@ -133,7 +133,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<accountsTestList.length;i++){ %>
                             <option value="<%=accountsTestList[i].id%>">
                               <%=(""+accountsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -176,7 +176,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<bsTestList.length;i++){ %>
                             <option value="<%=bsTestList[i].id%>">
                               <%=(""+bsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -219,7 +219,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<economicsTestList.length;i++){ %>
                             <option value="<%=economicsTestList[i].id%>">
                               <%=(""+economicsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -262,7 +262,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<englishTestList.length;i++){ %>
                             <option value="<%=englishTestList[i].id%>">
                               <%=(""+englishTestList[i].test_date).slice(0,15)%> (MaxMarks=
