@@ -3,7 +3,7 @@ var nodemailer=require('nodemailer');
 module.exports={
     sendMail:function(receiver,subject,msg,msgType='text'){
     var transporter=nodemailer.createTransport({
-        service:'gmail',
+        service:'Gmail',
         auth:{
             user:'adityacommerceclasses@gmail.com',
             pass:'adityaayushijiya'

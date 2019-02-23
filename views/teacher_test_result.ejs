@@ -133,7 +133,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<accountsTestList.length;i++){ %>
                             <option value="<%=accountsTestList[i].id%>">
                               <%=(""+accountsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -158,7 +158,7 @@
                                 <td>
                                   <%=accStudent[i].name%>
                                 </td>
-                                <td><input type="text" name="marks" value="0"></td>
+                                <td><input type="number" name="marks" min="0" max="100" value="0"></td>
                                 <td><input type="text" name="studentId" value="<%=accStudent[i].id%>" hidden></td>
                               </tr>
                               <% } %>
@@ -176,7 +176,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<bsTestList.length;i++){ %>
                             <option value="<%=bsTestList[i].id%>">
                               <%=(""+bsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -201,7 +201,7 @@
                                 <td>
                                   <%=bsStudent[i].name%>
                                 </td>
-                                <td><input type="text" name="marks" value="0"></td>
+                                <td><input type="number" name="marks" min="0" max="100" value="0"></td>
                                 <td><input type="text" name="studentId" value="<%=bsStudent[i].id%>" hidden></td>
                               </tr>
                               <% } %>
@@ -219,7 +219,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<economicsTestList.length;i++){ %>
                             <option value="<%=economicsTestList[i].id%>">
                               <%=(""+economicsTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -244,7 +244,7 @@
                                 <td>
                                   <%=ecoStudent[i].name%>
                                 </td>
-                                <td><input type="text" name="marks" value="0"></td>
+                                <td><input type="number" name="marks" min="0" max="100" value="0"></td>
                                 <td><input type="text" name="studentId" value="<%=ecoStudent[i].id%>" hidden></td>
                               </tr>
                               <% } %>
@@ -262,7 +262,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-lg-12 table-responsive">
                         <form method="post" action="/admin-result"><br>
-                          <select class="custom-select" name="testId">
+                          <select class="custom-select" name="testId" required >
                             <% for(var i=0;i<englishTestList.length;i++){ %>
                             <option value="<%=englishTestList[i].id%>">
                               <%=(""+englishTestList[i].test_date).slice(0,15)%> (MaxMarks=
@@ -287,7 +287,7 @@
                                 <td>
                                   <%=engStudent[i].name%>
                                 </td>
-                                <td><input type="text" name="marks" value="0"></td>
+                                <td><input type="number" name="marks" min="0" max="100" value="0"></td>
                                 <td><input type="text" name="studentId" value="<%=engStudent[i].id%>" hidden></td>
                               </tr>
                               <% } %>
