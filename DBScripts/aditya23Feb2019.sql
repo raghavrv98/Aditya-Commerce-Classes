@@ -31,7 +31,7 @@ CREATE TABLE `attendance` (
   KEY `fk_stu_id_attendance` (`stu_id`),
   CONSTRAINT `fk_lecture_id_attendance` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`),
   CONSTRAINT `fk_stu_id_attendance` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -81,7 +81,7 @@ CREATE TABLE `enrollment` (
   KEY `fk_stu_id_enrollment` (`stu_id`),
   CONSTRAINT `fk_course_id_enrollment` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`),
   CONSTRAINT `fk_stu_id_enrollment` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enrollment`
@@ -116,7 +116,7 @@ CREATE TABLE `fee_status` (
   PRIMARY KEY  (`id`),
   KEY `fk_enrol_id_fee` (`enrol_id`),
   CONSTRAINT `fk_enrol_id_fee` FOREIGN KEY (`enrol_id`) REFERENCES `enrollment` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `fee_status`
@@ -141,7 +141,7 @@ CREATE TABLE `lecture` (
   PRIMARY KEY  (`id`),
   KEY `fk_course_id_lecture` (`course_id`),
   CONSTRAINT `fk_course_id_lecture` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lecture`
@@ -167,7 +167,7 @@ CREATE TABLE `parent` (
   PRIMARY KEY  (`id`),
   KEY `fk_stu_id_parent` (`stu_id`),
   CONSTRAINT `fk_stu_id_parent` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `parent`
@@ -199,7 +199,7 @@ CREATE TABLE `student` (
   `email` varchar(31) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_mobile` (`mobile`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
@@ -207,7 +207,6 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'2019-01-06 02:01:09','Mashoor Gulati','8620422423','gulati','student.png',1,NULL,'Radha Valley','2018-09-02','Amar Nath','Rajesh Gulati',NULL),(2,'2019-01-04 06:55:07','Gaurang Sharma','1234567890','gaurang','student.png',1,NULL,'asdfghjk','2019-01-05','1234567890','Gauri Sharma',NULL),(4,'2019-01-06 02:01:19','Himanshu Goyal','2345678901','himanshu','student.png',0,NULL,'kosi','2019-01-07','2345678901','HK Goyal',NULL),(5,'2019-01-06 02:01:09','Rahul Dixit','9638527410','rahul','student.png',1,NULL,'Shahjahanpur','2019-01-07','9638527410','RDX',NULL),(6,'2019-01-06 02:12:15','Shailesh Vashishth','7894561230','shailesh','student.png',1,NULL,'aligarh','2019-01-07','7894561230','SV Vashishth',NULL),(10,'2019-01-06 02:53:23','iron man','12345','ironman','student.png',0,NULL,'fdffdfd','2019-01-06','12345','robert downey sr',NULL),(12,'2019-01-06 02:53:23','captain america','7536','7536','student.png',0,NULL,'dff','2019-01-07','7536','steve rogers',NULL),(13,'2019-02-04 15:55:07','qwerty','9182736450','qwerty','student.png',1,NULL,'69 krishna nagar mathura','2019-02-12','9182736450','qwerty','qwerty@gmail.com');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +250,7 @@ CREATE TABLE `test` (
   PRIMARY KEY  (`id`),
   KEY `fk_course_id_test` (`course_id`),
   CONSTRAINT `fk_course_id_test` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `test`
@@ -278,7 +277,7 @@ CREATE TABLE `test_result` (
   KEY `fk_stu_id_test_result` (`stu_id`),
   CONSTRAINT `fk_stu_id_test_result` FOREIGN KEY (`stu_id`) REFERENCES `student` (`id`),
   CONSTRAINT `fk_test_id_test_result` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `test_result`
@@ -310,7 +309,6 @@ CREATE TABLE `timetable` (
 
 LOCK TABLES `timetable` WRITE;
 /*!40000 ALTER TABLE `timetable` DISABLE KEYS */;
-INSERT INTO `timetable` VALUES (1,'2019-02-04 16:26:26',1,'upload_040fa8f149cf3a1522eb41f063f6ee09'),(2,'2019-02-04 16:27:25',2,'upload_251539b85078ba52b01a5c12b1beb90b'),(3,'2019-02-04 16:26:55',3,'upload_e4545ceef1324b5c0357906a6e5cdc34'),(4,'2019-02-04 16:27:48',4,'upload_a07784caf7e1198e7a8aed7cced2217b');
 /*!40000 ALTER TABLE `timetable` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-04 16:42:17
+-- Dump completed on 2019-02-23  4:09:17
