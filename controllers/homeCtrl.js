@@ -18,7 +18,8 @@ module.exports = {
     login: function* (next) {
         var mobile = this.request.body.userid
         var password = this.request.body.password
-        var query = util.format("select * from student where mobile=%s", mobile)
+        // var query = util.format("select * from student where mobile=%s", mobile)
+        var query = util.format("select * from student inner join enrollment on student.id=enrollment.stu_id where student.mobile=%s", mobile)
         var result = yield databaseUtils.executeQuery(query)
         var user = result[0]
         if (user && password === user.password && user.active == 1) {
