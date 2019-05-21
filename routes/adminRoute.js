@@ -19,5 +19,6 @@ router.post('/admin-update-syllabus', adminCtrl.updateSyllabus);
 router.get('/admin-update-timetable', adminCtrl.showTimeTable);
 router.post('/admin-update-timetable', adminCtrl.updateTimeTable);
 router.post('/admin-register-student',adminCtrl.registerStudent)
+router.get('/admin-student-details',adminCtrl.showStudentDetails)
 
 module.exports=router;
