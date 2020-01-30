@@ -13,7 +13,7 @@ module.exports = {
         }
     },
 
-    attendance: function* (next) {
+        attendance: function* (next) {
         var query = util.format('SELECT student.id, student.name FROM student JOIN enrollment ON enrollment.stu_id=student.id WHERE enrollment.course_id=1 AND student.active=1 ORDER BY student.name;')
         var accStudentList = yield databaseUtils.executeQuery(query)
 

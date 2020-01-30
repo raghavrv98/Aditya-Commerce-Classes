@@ -15,6 +15,10 @@ module.exports = {
         }
     },
 
+    showScholarshipRegistrationForm: function* (next) {
+            yield this.render('scholarship_registration_form');
+    },
+
     login: function* (next) {
         var mobile = this.request.body.userid
         var password = this.request.body.password
@@ -124,6 +128,32 @@ module.exports = {
         var message = this.request.body.message + "\n Email:" + email + "\nMobile:" + mobile + "\nName:" + name
         mailUtils.sendMail('adityacommerceclasses@gmail.com', "Enquiry Form", message)
         this.redirect('/')
-    }
+    },
+
+    // scholarshipRegistrationForm: function* (next) {
+    //     var name = this.request.body.name
+    //     var school = this.request.body.school
+    //     var grade = this.request.body.class
+    //     var subject = this.request.body.subject
+    //     var fName = this.request.body.fathername
+    //     var mName = this.request.body.mothername
+    //     var cNumber = this.request.body.cNumber
+    //     var wNumber = this.request.body.wNumber
+    //     var address = this.request.body.address
+    //     var email = this.request.body.email
+    //     var message = "Student's name : "+name+
+    //                 "\nName of the present school : "+school+
+    //                 "\nCurrent class of the student : "+grade+
+    //                 "\nSubject for Test : "+subject+
+    //                 "\nFather's name : "+fName+
+    //                 "\nMother's name : "+mName+
+    //                 "\nContact no.: "+cNumber+
+    //                 "\nWhatsapp no. : "+wNumber+
+    //                 "\nAddress : "+address+
+    //                 "\nEmail Id : "+email
+    //     mailUtils.sendMail('adityacommerceclasses@gmail.com', "Enquiry Form", message)
+    //     mailUtils.sendMail(email, "Confirmation of applicant ", "Thank you for your registration. We further inform you about the Test Date")
+    //     yield this.render('scholarship_registration_form')
+    // }
 
 }
