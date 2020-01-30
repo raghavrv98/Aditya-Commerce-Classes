@@ -9,6 +9,8 @@ router.post('/change-password',homeCtrl.changePassword)
 router.post('/forgot-password',homeCtrl.forgotPassword)
 router.post('/enquiry-mail',homeCtrl.enquiryMail)
 router.get('/scholarship-registration-form',homeCtrl.showScholarshipRegistrationForm)
+router.post('/scholarship-registration-form-submit',homeCtrl.scholarshipRegistrationFormSubmit)
+router.get('/registration-successfull',homeCtrl.showRegistrationSuccessfull)
 
 router.get('/student',studentCtrl.showDashboard)
 router.get('/student-attendance',studentCtrl.showAttendance)

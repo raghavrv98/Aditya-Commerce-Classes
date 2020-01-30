@@ -1,375 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Scholarship Registration Form</title>
+		<link href="images/logo.png" rel="icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/scholarshipStyle.css">
+	</head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AdityaClasses</title>
-  <link href="images/logo.png" rel="icon">
-  <link rel="stylesheet" href="css/plugins.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
+	<body>
 
-@media screen and (min-width: 480px) {
-        #l {
-            height: 55px;
-            width: 55px;
-            font-size: 30px;
-        }
-    }
-    @media screen and (max-width:479px) {
-        #l {
-          height: 10%;
-            width: 10%;
-            font-size: 16px;
-        }
-    }
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="images/scholarshipLogo.png" alt="">
+				</div>
+				<form method="POST" action="/scholarship-registration-form-submit">
+					<h3>Scholarship Registration Form</h3>
+					<div class="form-row">
+						<input type="text" name="name" style="width:90%; margin-left:5%;" class="form-control" placeholder="Name" required>
+						<input type="email" name="email" style="width:90%; margin-left:5%;" class="form-control" placeholder="Email-id" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="school" style="width:90%; margin-left:5%;" class="form-control" placeholder="Current School" required>
+						<div class="form-holder">
+							<select style="width:90%; margin-left:5%;" name="grade" id="" class="form-control" required>
+								<option value="" disabled selected>Choose Your Grade</option>
+								<option value="7">7th</option>
+								<option value="8">8th</option>
+								<option value="9">9th</option>
+								<option value="10">10th</option>
+								<option value="11">11th</option>
+							</select>
+							<i class="zmdi zmdi-chevron-down"></i>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-holder">
+							<select style="width:90%; margin-left:5%;" name="subject" id="" class="form-control" required>
+								<option value="" disabled selected>Choose Your Subject</option>
+								<option value="">English</option>
+								<option value="">Mathematics</option>
+								<option value="">Social Science</option>
+								<option value="">Science</option>
+								<option value="">Physics</option>
+								<option value="">Chemistry</option>
+								<option value="">Biology</option>
+								<option value="">Accountancy</option>
+								<option value="">Business Studies</option>
+								<option value="">Economics</option>
+							</select>
+							<i class="zmdi zmdi-chevron-down"></i>
+						</div>
+					</div>
+					<div class="form-row">
+						<input type="text" name="fatherName" style="width:90%; margin-left:5%;" class="form-control" placeholder="Father's Name" required>
+						<input type="text" name="motherName" style="width:90%; margin-left:5%;" class="form-control" placeholder="Mother's Name" required>
+					</div>
+					<div class="form-row">
+						<input type="tel" style="width:90%; margin-left:5%;" name="cNumber" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" placeholder="Contact No." required>
+						<input type="tel" style="width:90%; margin-left:5%;" name="wNumber" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number"  class="form-control" placeholder="Whatsapp No." required>
+					</div>
+					<textarea name="address" placeholder="Address" class="form-control" style="height: 130px; width:90%; margin-left:5%;" required></textarea>
+					<br>
+					<h4><span style="color: red"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:</span> All fields are required</h4>
+					<button>Register
+					<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+				</form>
+				
+			</div>
+		</div>
 
-</style>
-
-<style>[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: #aaa;
-  margin-right: 0.5em;
-}
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
-}</style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="90">
-
-  <!--PreLoader-->
-  <div class="loader">
-    <div class="loader-inner">
-      <div class="loader-blocks">
-        <span class="block-1"></span>
-        <span class="block-2"></span>
-        <span class="block-3"></span>
-        <span class="block-4"></span>
-        <span class="block-5"></span>
-        <span class="block-6"></span>
-        <span class="block-7"></span>
-        <span class="block-8"></span>
-        <span class="block-9"></span>
-        <span class="block-10"></span>
-        <span class="block-11"></span>
-        <span class="block-12"></span>
-        <span class="block-13"></span>
-        <span class="block-14"></span>
-        <span class="block-15"></span>
-        <span class="block-16"></span>
-      </div>
-    </div>
-  </div>
-  <!--PreLoader Ends-->
-  <% if(currentUser && currentUser.isAdmin) { %>
-  <!-- header -->
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg fixed-top gradient_bg">
-      <div class="container">
-        <a class="navbar-brand" href="/admin" id="l" style="font-family:Monotype Corsiva, Times, Serif; color: white">Aditya
-          Commerce Classes</a>
-        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#xenav">
-          <span> </span>
-          <span> </span>
-          <span> </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="xenav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link pagescroll" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link page-scroll" data-toggle="modal" href="#changepassword">Change Password</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link page-scroll" href="/logout">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!--side menu open button-->
-      <a href="javascript:void(0)" class="d-none d-lg-inline-block sidemenu_btn" id="sidemenu_toggle">
-        <span></span> <span></span> <span></span>
-      </a>
-    </nav>
-
-    <!-- side menu -->
-    <div class="side-menu">
-      <div class="inner-wrapper">
-        <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
-        <nav class="side-nav">
-          <ul class="navbar-nav w-100">
-            <li class="nav-item active">
-              <a class="nav-link pagescroll" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link page-scroll" data-toggle="modal" href="#changepassword">Change Password</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link page-scroll" href="/logout">Logout</a>
-            </li>
-          </ul>
-        </nav>
-
-        <ul class="social-icons-simple white top50 w-100">
-        </ul>
-        <a href="http://www.blackreddish.com/" target="_blank"><p class="copyrights wow fadeInUp" data-wow-delay="400ms" style="color: white" > &copy; 2019 Designed and Developed by <b>Blackreddish</b></p></a>
-      </div>
-    </div>
-    <a id="close_side_menu" href="javascript:void(0);"></a>
-    <!-- End side menu -->
-  </header>
-  <!-- header -->
-     <!-- Modal -->
- <div class="container">    
-                            
-  <div class="modal fade" id="changepassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-     <div class="modal-content">
-                     <div class="modal-header" style="background-color:#0683c9">
-                          <h4 style="color:white">Change Password</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-                       </div>
-                   
-                  <div class="modal-body,input-group input-group-lg">
-                     <br><br>
-           
-                     <form method="post" action = "/change-password">
-                       <input type="password" name="oldp" class="form-control" id="password" data-toggle="password" placeholder="Enter Old Password" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black" required>
-                       <br>
-                       <script type="text/javascript">
-                        $("#password").password('toggle');
-                      </script>
-                      
-                       <input type="password" name="newp"  class="form-control" placeholder="Enter New Password" style="width:80%; margin-left:10%;border-color: #00bcd4; color:black" required><br>
-                       <center><input type="submit" style="border-radius:5%;" class="button btnprimary" style="background-color:#00bcd4" name="" value="change"></center>
-                       
-                       <br><br>
-               <br><br>
-                                       
-              </form>
-                                </div>
-    </div>
- </div>
-</div>
-
-</div>
-
-  <!-- registration modal-->
-  <div class="container">
-
-    <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:#0683c9">
-            <h4 style="color:white">Registration Form</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"
-                aria-hidden="true"></i></button>
-          </div>
-          <div class="modal-body">
-            <br>
-            <form method="post" action="/admin-register-student">
-              <input type="text" name="studentname" class="form-control" placeholder="Student's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="text" name="fathername" class="form-control" placeholder="Father's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="tel" name="phone" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" placeholder="Phone Number" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-                <br><input type="email" name="email_id" class="form-control" placeholder="Email-id" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="password" name="password" class="form-control" placeholder="Password" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="text" name="schoolname" class="form-control" placeholder="School's Name" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br><input type="date" name="joiningdate" class="form-control" placeholder="Joining Date :" id="date" style="width:80%; margin-left:10%; border-color: #00bcd4; color:black"
-                required>
-              <br>
-              <div class="form-check-inline" style="margin-left:10%;">
-                <input type="checkbox" name="accounts" class="form-check-input" checked><b>Accounts</b>&nbsp;
-                <input type="checkbox" name="bs" class="form-check-input" checked><b>Business</b>&nbsp;
-                <input type="checkbox" name="economics" class="form-check-input" checked><b>Economics</b>&nbsp;
-                <input type="checkbox" name="english" class="form-check-input" checked><b>English</b>&nbsp;
-              </div>
-              <br><br><textarea class="form-control" name="address" placeholder="Address" style="width:80%; margin-left:10%; border-color:#00bcd4; color:black;"
-                required data-error="Please enter your Address"></textarea>
-              <input type="submit" style="margin-left: 35%" id="login_btn" class="button btnprimary top50" style="background-color:#00bcd4"
-                name="" value="Submit">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section id="home" class="padding_top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 margin_bottom wow fadeInUp" style="margin-left: 13%" data-wow-delay="350ms">
-          <div class="row">
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a data-toggle="modal" href="#registration"><i class="fa fa-pencil" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Registration</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-attendance"><i class="fa fa-file-text-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Upload Attendance</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-view-attendance">
-                <i class="fa fa-eye" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>View Attendance</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-create-exam"><i class="fa fa-file-text-fa fa-pencil-square-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Create new Exams</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-fee-status"><i class="fa fa-list-alt" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Fees Details</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-result"><i class="fa fa-bar-chart" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Result</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-update-syllabus"><i class="fa fa-files-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Syllabus</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-update-timetable"><i class="fa fa-calendar-check-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Time Table</h4>
-              </p></a>
-            </div>
-
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/admin-student-details"><i class="fa fa-calendar-check-o" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Student Details</h4>
-              </p></a>
-            </div>
-
-            
-            <div class="col-md-4 col-6 our-address top40">
-              <h1 class="darkcolor"><a href="/deregister-student">
-                <i class="fa fa-user-times" style="color:#00bcd4"></i></h1>
-              <p class="bottom15">
-                <h4>Deregister Student</h4>
-              </p></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <% } else { %>
-  <h1 class="text-center"> Unauthorised Access </h1>
-  <% } %>
-       
-<!--Site Footer Here-->
-<footer id="site-footer">
-    <div class="container">
-       <div class="row">
-          <div class="col-md-12 col-sm-12 text-center">
-             <ul class="social-icons bottom25 wow fadeInUp" data-wow-delay="300ms">
-                <li><a href="https://www.facebook.com/profile.php?id=100013802290123&fref=search&__tn__=%2Cd%2CP-R&eid=ARA-YxJf6XGHsFkU-d-oewjB9tBKOxBbxpebpc1zqIGmk91SVef86Z2lXJ0NhaLgsoB-0hoLAVWIH9o8" target="_blank"><i class="fa fa-facebook"></i> </a> </li>
-                <li><a href="mailto:adityacommerceclasses@gmail.com?subject=Ask%20a%20Query" target="_blank"><i class="fa fa-envelope-o"></i> </a> </li>
-                </ul>
-                <a href="http://www.blackreddish.com/" target="_blank"><p class="copyrights wow fadeInUp" data-wow-delay="400ms"> &copy; 2019 Designed and Developed by <b>Blackreddish</b></p></a>
-          </div>
-       </div>
-    </div>
- </footer>
- <!--Footer ends-->   
- 
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="js/jquery-3.1.1.min.js"></script>
-
-  <!--Bootstrap Core-->
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
-  <!--to view items on reach-->
-  <script src="js/jquery.appear.js"></script>
-
-  <!--Equal-Heights-->
-  <script src="js/jquery.matchHeight-min.js"></script>
-
-  <!--Owl Slider-->
-  <script src="js/owl.carousel.min.js"></script>
-
-  <!--number counters-->
-  <script src="js/jquery-countTo.js"></script>
-
-  <!--Parallax Background-->
-  <script src="js/parallaxie.js"></script>
-
-  <!--Cubefolio Gallery-->
-  <script src="js/jquery.cubeportfolio.min.js"></script>
-
-  <!--FancyBox popup-->
-  <script src="js/jquery.fancybox.min.js"></script>
-
-  <!-- Video Background-->
-  <script src="js/jquery.background-video.js"></script>
-
-  <!--TypeWriter-->
-  <script src="js/typewriter.js"></script>
-
-  <!--Particles-->
-  <script src="js/particles.min.js"></script>
-
-  <!--WOw animations-->
-  <script src="js/wow.min.js"></script>
-
-  <!--Revolution SLider-->
-  <script src="js/revolution/jquery.themepunch.tools.min.js"></script>
-  <script src="js/revolution/jquery.themepunch.revolution.min.js"></script>
-  <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-  <script src="js/revolution/extensions/revolution.extension.actions.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.carousel.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.migration.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.navigation.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.parallax.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
-  <script src="js/revolution/extensions/revolution.extension.video.min.js"></script>
-
-  <!--Google Map API-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ97zN_MClQ8BnmJJOCY165S2QEYvbIis"></script>
-  <script src="js/functions.js"></script>
-</body>
-
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/scholarshipMain.js"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
