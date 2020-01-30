@@ -11,7 +11,7 @@
   "author": "The Technocrats",
   "dependencies": {
     "co": "4.6.0",
-    "debug": "2.6.3",
+    "debug": "2.6.9",
     "ejs": "^2.3.3",
     "koa": "1.4.0",
     "koa-body": "1.4.0",
