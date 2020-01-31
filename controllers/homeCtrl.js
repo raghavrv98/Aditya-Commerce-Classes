@@ -156,7 +156,7 @@ module.exports = {
                     "\nAddress : "+address+
                     "\nEmail Id : "+email
         mailUtils.sendMail('adityacommerceclasses@gmail.com', "Registration Successfull", message)
-        mailUtils.sendMail(email, "Confirmation of applicant ", "Thank you for your registration. We further inform you about the Test Date")
+        mailUtils.sendMail(email, "Confirmation of applicant ", "Thank you for your registration. Test Date is March 15,2020.")
         this.redirect('/registration-successfull')
     }
 
