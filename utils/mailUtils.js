@@ -2,6 +2,7 @@ var nodemailer=require('nodemailer');
 
 module.exports={
     sendMail:function(receiver,subject,msg,msgType='text'){
+        console.log('receiver,subject,msg: ', receiver,subject,msg);
     var transporter=nodemailer.createTransport({
         service:'Gmail',
         auth:{
