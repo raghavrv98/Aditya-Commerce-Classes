@@ -26,10 +26,13 @@ module.exports = {
     login: function* (next) {
         var mobile = this.request.body.userid
         var password = this.request.body.password
+        console.log('password: ', password);
         // var query = util.format("select * from student where mobile=%s", mobile)
         var query = util.format("select * from student inner join enrollment on student.id=enrollment.stu_id where student.mobile=%s", mobile)
         var result = yield databaseUtils.executeQuery(query)
+        console.log('query: ', query);
         var user = result[0]
+        console.log('user: ', user);
         if (user && password === user.password && user.active == 1) {
             user["isAdmin"] = false
             sessionUtils.saveUserInSession(user, this.cookies)
@@ -38,6 +41,7 @@ module.exports = {
             query = util.format("select * from super_user where mobile=%s", mobile)
             result = yield databaseUtils.executeQuery(query)
             user = result[0]
+            console.log('superuser: ', user);
             if (user && password === user.password) {
                 user["isAdmin"] = true
                 sessionUtils.saveUserInSession(user, this.cookies)
