@@ -6,14 +6,14 @@ module.exports={
     var transporter=nodemailer.createTransport({
         service:'Gmail',
         auth:{
-            user:'adityacommerceclasses@gmail.com',
-            pass:'adityaayushijiya'
+            user:'webadityacommerceclasses@gmail.com',
+            pass:'Acc!@9897165055'
         }
     });
 
     if(msgType==='html'){
         var mailOptions={
-            from:'adityacommerceclasses@gmail.com',
+            from:'webadityacommerceclasses@gmail.com',
             to:receiver,
             subject:subject,
             html:msg
@@ -21,7 +21,7 @@ module.exports={
     }
     else{
         var mailOptions={
-            from:'adityacommerceclasses@gmail.com',
+            from:'webadityacommerceclasses@gmail.com',
             to:receiver,
             subject:subject,
             text:msg
