@@ -207,7 +207,7 @@
         </button>
         
          <div class="collapse navbar-collapse" id="xenav">
-            <ul class="navbar-nav ml-auto">
+            <ul style="margin-right: -200px;" class="navbar-nav ml-auto">
                <li class="nav-item active">
                   <a class="nav-link pagescroll" href="#home">Home</a> 
                </li>
@@ -226,6 +226,20 @@
                <li class="nav-item">
                   <a class="nav-link pagescroll" href="#contact">contact</a>
                </li>
+               <div class="nav-item dropdown">
+                  <button style="background: transparent; border: none; margin-top: 4px" class="nav-link pagescroll" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Scholarship Test
+                  </button>
+                  <div class="dropdown-menu" style="width: 50%;" aria-labelledby="dropdownMenu2">
+                    <a class="dropdown-item" href="/scholarship-test-instructions">Class 9<sup>th</sup></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/scholarship-test-instructions">Class 10<sup>th</sup></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/scholarship-test-instructions">Class 11<sup>th</sup></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/scholarship-test-instructions">Class 12<sup>th</sup></a>
+                  </div>
+                </div>
                <li class="nav-item">
                   <% if(!currentUser) { %>
                     <a class="nav-link page-scroll" data-toggle="modal" href="#">Login</a>
@@ -238,13 +252,13 @@
       </div>
 
       <!--side menu open button-->
-      <a href="javascript:void(0)" class="d-none d-lg-inline-block sidemenu_btn" id="sidemenu_toggle">
+      <!-- <a href="javascript:void(0)" class="d-none d-lg-inline-block sidemenu_btn" id="sidemenu_toggle">
           <span></span> <span></span> <span></span>
        </a>
-   </nav>
+   </nav> -->
 
    <!-- side menu -->
-   <div class="side-menu">
+   <!-- <div class="side-menu">
       <div class="inner-wrapper">
          <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
          <nav class="side-nav">
@@ -273,10 +287,10 @@
             </ul>
          </nav>
 
-         <!-- <a href="http://www.blackreddish.com/" target="_blank"><p class="whitecolor">&copy; 2019 Designed and Developed by <b>Blackreddish</b></p></a> -->
+         <a href="http://www.blackreddish.com/" target="_blank"><p class="whitecolor">&copy; 2019 Designed and Developed by <b>Blackreddish</b></p></a>
       </div>
    </div>
-   <a id="close_side_menu" href="javascript:void(0);"></a>
+   <a id="close_side_menu" href="javascript:void(0);"></a> -->
    <!-- End side menu -->
 </header>
 <!-- header -->

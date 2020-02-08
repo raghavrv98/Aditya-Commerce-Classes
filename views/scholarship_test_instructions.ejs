@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>AdityaClasses</title>
+    <link href="images/logo.png" rel="icon">
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scholarshipStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @media screen and (min-width: 480px) {
+            #l {
+                height: 55px;
+                width: 55px;
+                font-size: 30px;
+            }
+
+            #modalWidth {
+                width: 111%;
+            }
+        }
+
+        @media screen and (max-width:479px) {
+            #l {
+                height: 10%;
+                width: 10%;
+                font-size: 16px;
+            }
+        }
+
+        li {
+            margin-left: 16px;
+            margin-top: -13px;
+        }
+    </style>
+
+    <style>
+        [type="date"]:before {
+            content: attr(placeholder) !important;
+            color: #aaa;
+            margin-right: 0.5em;
+        }
+
+        input[type="date"]:focus:before,
+        input[type="date"]:valid:before {
+            content: "";
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
+
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="loader-blocks">
+                <span class="block-1"></span>
+                <span class="block-2"></span>
+                <span class="block-3"></span>
+                <span class="block-4"></span>
+                <span class="block-5"></span>
+                <span class="block-6"></span>
+                <span class="block-7"></span>
+                <span class="block-8"></span>
+                <span class="block-9"></span>
+                <span class="block-10"></span>
+                <span class="block-11"></span>
+                <span class="block-12"></span>
+                <span class="block-13"></span>
+                <span class="block-14"></span>
+                <span class="block-15"></span>
+                <span class="block-16"></span>
+            </div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+    <!-- header -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg fixed-top gradient_bg">
+            <div class="container">
+                <p class="navbar-brand"
+                    style="font-family:Monotype Corsiva, Times, Serif; color: white; font-size: 40px">Scholarship Test
+                </p>
+            </div>
+    </header>
+    <!-- header -->
+
+    <!-- registration modal-->
+    <div class="container">
+
+        <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:#0683c9">
+                        <h4 style="color:white">Registration Form</h4>
+                        <a style="color: #FFFFFF; font-size:20px; cursor: pointer;" data-dismiss="modal"
+                            aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                    <div id="modalWidth" class="modal-body">
+                        <form method="POST" action="/scholarship-registration-form-submit">
+                            <div style="margin-left: 10px;">
+                                <div class="form-row">
+                                    <input type="text" name="name" style="width:90%; margin-left:5%;"
+                                        class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="email" name="email" style="width:90%; margin-left:5%;"
+                                        class="form-control" placeholder="Email-id" required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" name="school" style="width:90%; margin-left:5%;"
+                                        class="form-control" placeholder="Current School" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder">
+                                        <select style="width:90%; margin-left:5%;" name="grade" id=""
+                                            class="form-control" required>
+                                            <option value="" disabled selected>Current Grade</option>
+                                            <option value="8th">8th</option>
+                                            <option value="9th">9th</option>
+                                            <option value="10th">10th</option>
+                                            <option value="11th">11th</option>
+                                        </select>
+                                        <i class="zmdi zmdi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder">
+                                        <select style="width:90%; margin-left:5%;" name="subject" id=""
+                                            class="form-control" required>
+                                            <option value="" disabled selected>Choose Your Subject</option>
+                                            <option value="English">English</option>
+                                            <option value="Mathematics">Mathematics</option>
+                                            <option value="Social Science">Social Science</option>
+                                            <option value="Science">Science</option>
+                                            <option value="Physics">Physics</option>
+                                            <option value="Chemistry">Chemistry</option>
+                                            <option value="Biology">Biology</option>
+                                            <option value="Accountancy">Accountancy</option>
+                                            <option value="Business Studies">Business Studies</option>
+                                            <option value="Economics">Economics</option>
+                                        </select>
+                                        <i class="zmdi zmdi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" name="fatherName" style="width:90%; margin-left:5%;"
+                                        class="form-control" placeholder="Father's Name" required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" name="motherName" style="width:90%; margin-left:5%;"
+                                        class="form-control" placeholder="Mother's Name" required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="tel" style="width:90%; margin-left:5%;" name="cNumber"
+                                        pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number"
+                                        class="form-control" placeholder="Contact No." required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="tel" style="width:90%; margin-left:5%;" name="wNumber"
+                                        pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number"
+                                        class="form-control" placeholder="Whatsapp No." required>
+                                </div>
+                                <div class="form-row">
+                                    <textarea name="address" placeholder="Address" class="form-control"
+                                        style="height: 130px; width:90%; margin-left:5%;" required></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <h4><span style="color: red"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:</span>
+                                All fields are required</h4>
+                            <button style="background-color: #0683C9">Start Test
+                                <i class="zmdi zmdi-long-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="padding_top">
+        <div class="container">
+            <h2 style="text-align: center; margin-top: 27px;"><u>Instructions</u></h2>
+            <ol style="list-style-type: disc; color: black; margin-top: 40px; font-size: 20px">
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non laboriosam similique nulla, nostrum
+                    magnam ducimus odit enim atque et quos voluptatum vel facilis nemo, dolorem nesciunt autem cum est
+                    pariatur.</li><br>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non laboriosam similique nulla, nostrum
+                    magnam ducimus odit enim atque et quos voluptatum vel facilis nemo, dolorem nesciunt autem cum est
+                    pariatur.</li><br>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non laboriosam similique nulla, nostrum
+                    magnam ducimus odit enim atque et quos voluptatum vel facilis nemo, dolorem nesciunt autem cum est
+                    pariatur.</li><br>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non laboriosam similique nulla, nostrum
+                    magnam ducimus odit enim atque et quos voluptatum vel facilis nemo, dolorem nesciunt autem cum est
+                    pariatur.</li>
+            </ol>
+            <a data-toggle="modal" href="#registration"><button style="background-color: #0683C9">Register Here
+                </button></a><br><br>
+        </div>
+    </section>
+
+    <!--Site Footer Here-->
+    <!-- <footer id="site-footer">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-sm-12 text-center">
+             <ul class="social-icons bottom25 wow fadeInUp" data-wow-delay="300ms">
+                <li><a href="https://www.facebook.com/profile.php?id=100013802290123&fref=search&__tn__=%2Cd%2CP-R&eid=ARA-YxJf6XGHsFkU-d-oewjB9tBKOxBbxpebpc1zqIGmk91SVef86Z2lXJ0NhaLgsoB-0hoLAVWIH9o8" target="_blank"><i class="fa fa-facebook"></i> </a> </li>
+                <li><a href="mailto:adityacommerceclasses@gmail.com?subject=Ask%20a%20Query" target="_blank"><i class="fa fa-envelope-o"></i> </a> </li>
+                </ul>
+                <a href="http://www.blackreddish.com/" target="_blank"><p class="copyrights wow fadeInUp" data-wow-delay="400ms"> &copy; 2019 Designed and Developed by <b>Blackreddish</b></p></a>
+          </div>
+       </div>
+    </div>
+ </footer>
+ -->
+    <!--Footer ends-->
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!--Bootstrap Core-->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--to view items on reach-->
+    <script src="js/jquery.appear.js"></script>
+
+    <!--Equal-Heights-->
+    <script src="js/jquery.matchHeight-min.js"></script>
+
+    <!--Owl Slider-->
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!--number counters-->
+    <script src="js/jquery-countTo.js"></script>
+
+    <!--Parallax Background-->
+    <script src="js/parallaxie.js"></script>
+
+    <!--Cubefolio Gallery-->
+    <script src="js/jquery.cubeportfolio.min.js"></script>
+
+    <!--FancyBox popup-->
+    <script src="js/jquery.fancybox.min.js"></script>
+
+    <!-- Video Background-->
+    <script src="js/jquery.background-video.js"></script>
+
+    <!--TypeWriter-->
+    <script src="js/typewriter.js"></script>
+
+    <!--Particles-->
+    <script src="js/particles.min.js"></script>
+
+    <!--WOw animations-->
+    <script src="js/wow.min.js"></script>
+
+    <!--Revolution SLider-->
+    <script src="js/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="js/revolution/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="js/revolution/extensions/revolution.extension.actions.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.migration.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="js/revolution/extensions/revolution.extension.video.min.js"></script>
+
+    <!--Google Map API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ97zN_MClQ8BnmJJOCY165S2QEYvbIis"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>

@@ -16,13 +16,24 @@ module.exports = {
     },
 
     showScholarshipRegistrationForm: function* (next) {
-            yield this.render('scholarship_registration_form');
+        yield this.render('scholarship_registration_form');
     },
 
     showRegistrationSuccessfull: function* (next) {
         yield this.render('registration_successfull');
-},
+    },
 
+    scholarshipTestInstructions: function* (next) {
+        yield this.render('scholarship_test_instructions');
+    },
+
+    scholarshipTest: function* (next) {
+        yield this.render('scholarship_test');
+    },
+    scholarshipTestSubmission: function* (next) {
+        yield this.render('scholarship_test_submission');
+    },
+    
     login: function* (next) {
         var mobile = this.request.body.userid
         var password = this.request.body.password
@@ -55,36 +66,36 @@ module.exports = {
     changePassword: function* (next) {
         var oldp = this.request.body.oldp
         var newp = this.request.body.newp
-        
-        
+
+
 
         var query = util.format('select password from super_user where password="%s"', oldp)
         var result = yield databaseUtils.executeQuery(query)
         var user = result[0]
-        
+
 
         if (user && oldp === user.password) {
-            
+
             user["isAdmin"] = true
-            
+
 
             var queryp = util.format('update super_user set password="%s" where password="%s"', newp, oldp)
-            
+
             var resultp = yield databaseUtils.executeQuery(queryp)
-            
+
             sessionUtils.saveUserInSession(user, this.cookies)
-            
+
 
             this.redirect('/admin')
         } else {
             query = util.format('select password from student where password="%s"', oldp)
             result = yield databaseUtils.executeQuery(query)
             user = result[0]
-            
+
 
             if (user && oldp === user.password) {
                 user["isAdmin"] = false
-                
+
 
                 var queryp = util.format('update student set password="%s" where password="%s"', newp, oldp)
                 var resultp = yield databaseUtils.executeQuery(queryp)
@@ -149,19 +160,44 @@ module.exports = {
         var wNumber = this.request.body.wNumber
         var address = this.request.body.address
         var email = this.request.body.email
-        var message = "Student's name : "+name+
-                    "\nName of the present school : "+school+
-                    "\nCurrent class of the student : "+grade+
-                    "\nSubject for Test : "+subject+
-                    "\nFather's name : "+fName+
-                    "\nMother's name : "+mName+
-                    "\nContact no.: "+cNumber+
-                    "\nWhatsapp no. : "+wNumber+
-                    "\nAddress : "+address+
-                    "\nEmail Id : "+email
+        var message = "Student's name : " + name +
+            "\nName of the present school : " + school +
+            "\nCurrent class of the student : " + grade +
+            "\nSubject for Test : " + subject +
+            "\nFather's name : " + fName +
+            "\nMother's name : " + mName +
+            "\nContact no.: " + cNumber +
+            "\nWhatsapp no. : " + wNumber +
+            "\nAddress : " + address +
+            "\nEmail Id : " + email
         mailUtils.sendMail('webadityacommerceclasses@gmail.com', "Registration Successfull", message)
         mailUtils.sendMail(email, "Confirmation of applicant ", "Thank you for your registration. Test Date is March 15,2020.")
         this.redirect('/registration-successfull')
+    },
+
+    scholarshipTestRegistrationSubmit: function* (next) {
+        var name = this.request.body.name
+        var school = this.request.body.school
+        var grade = this.request.body.grade
+        var subject = this.request.body.subject
+        var fName = this.request.body.fatherName
+        var mName = this.request.body.motherName
+        var cNumber = this.request.body.cNumber
+        var wNumber = this.request.body.wNumber
+        var address = this.request.body.address
+        var email = this.request.body.email
+        var message = "Student's name : " + name +
+            "\nName of the present school : " + school +
+            "\nCurrent class of the student : " + grade +
+            "\nSubject for Test : " + subject +
+            "\nFather's name : " + fName +
+            "\nMother's name : " + mName +
+            "\nContact no.: " + cNumber +
+            "\nWhatsapp no. : " + wNumber +
+            "\nAddress : " + address +
+            "\nEmail Id : " + email
+        mailUtils.sendMail('webadityacommerceclasses@gmail.com', "Test Registration Successfull For" + name, message)
+        this.redirect('/scholarship-test')
     }
 
 }
