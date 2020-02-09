@@ -196,7 +196,7 @@ module.exports = {
             "\nWhatsapp no. : " + wNumber +
             "\nAddress : " + address +
             "\nEmail Id : " + email
-        mailUtils.sendMail('webadityacommerceclasses@gmail.com', "Test Registration Successfull For" + name, message)
+        mailUtils.sendMail('webadityacommerceclasses@gmail.com', "Test registration successfull for " + name, message)
         this.redirect('/scholarship-test')
     }
 
