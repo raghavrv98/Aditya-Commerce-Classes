@@ -24,7 +24,7 @@
     "koa-views": "3.1.0",
     "mysql": "2.15.0",
     "nodemailer": "^5.1.1",
-    "redis": "2.8.0",
+    "redis": "3.1.1",
     "thunkify": "2.1.2",
     "uuid": "3.3.2"
   },
