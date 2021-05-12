@@ -23,7 +23,7 @@
     "koa-static": "1.5.2",
     "koa-views": "3.1.0",
     "mysql": "2.15.0",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "redis": "2.8.0",
     "thunkify": "2.1.2",
     "uuid": "3.3.2"
